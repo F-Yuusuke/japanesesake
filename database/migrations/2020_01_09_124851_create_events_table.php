@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('date');
             $table->string('place');
             $table->integer('price');
+            $table->string('picture_path');
             $table->integer('owner_id');
             $table->timestamps();
         });
