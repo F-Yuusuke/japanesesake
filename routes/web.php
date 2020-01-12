@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/event', 'EventController@index')->name('event.index'); 
+Route::get('/event', 'EventController@index')->name('event.index');
+Route::get('event/create', 'EventController@event_create')->name('event.create');//イベント登録
+Route::post('event/create', 'EventController@event_store')->name('event.store');//イベント保存

@@ -17,11 +17,11 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name', 30);
             $table->text('description');
-            $table->dateTime('date');
+            $table->string('date');
             $table->string('place');
             $table->integer('price');
             $table->string('picture_path');
-            $table->integer('owner_id');
+            // $table->increments('owner_id');後で作る
             $table->timestamps();
         });
     }

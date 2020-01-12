@@ -50,5 +50,8 @@
             <p>{{ $event->owner_id }}</p>
         </div>
     @endforeach
+
+    <a href="{{ route('event.create') }}" class="btn btn-primary btn-block">event new post
+    </a>
 </body>
 </html>
