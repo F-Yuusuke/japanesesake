@@ -12,3 +12,15 @@
 */
 
 Route::get('/event', 'EventController@index')->name('event.index'); 
+Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index'); 
+
+// 酒蔵側の認証機能
+// 以下のページはログインしているときのみ表示
+Route::group(['middleware' => 'auth'], function() {
+
+
+});
+
+Auth::routes();
+
+
