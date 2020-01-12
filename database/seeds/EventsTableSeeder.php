@@ -33,6 +33,16 @@ class EventsTableSeeder extends Seeder
                 'picture_path' => 'bbbbbbb',
                 'owner_id' => '5',
             ],
+            [
+                'name' => '蔵 concert',
+                'description'  => 'you can enjoy beautiful music at ....',
+                'date' => '2020-02-15 18:00:00',
+                'place' => 'efg酒蔵',
+                'price' => '2000',
+                'picture_path' => 'bbbbbbb',
+                'owner_id' => '5',
+            ],
+            
         ];
 
         foreach ($events as $event) {
