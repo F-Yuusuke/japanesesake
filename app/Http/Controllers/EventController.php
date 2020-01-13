@@ -31,4 +31,19 @@ class EventController extends Controller
 
         return view('events.create');//ここのURLをトップに変更
     }
+    // public function destroy(int $id)
+    public function destroy(Event $event)
+   {
+    //    dd($event);
+        //Diaryモデルを使用して、diariesテーブルから$idと一致するidをもつデータを取得
+        // $event = Event::find($id); 
+        // dd($event);
+
+        //取得したデータを削除
+        $event->delete();
+
+        return redirect()->route('event.index');
+    }
 }
+
+
