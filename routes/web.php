@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/event', 'EventController@index')->name('event.index'); 
+Route::get('/event', 'EventController@index')->name('event.index');
+Route::get('/event', 'EventController@index')->name('event.index');
+Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.destroy'); // 削除処理
+ 
