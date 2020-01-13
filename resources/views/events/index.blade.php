@@ -33,10 +33,21 @@
         <a class="nav-link" href="#">酒蔵の方はこちら</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0" action="{{url('/')}}">
+      <input class="form-control mr-sm-2" type="search" placeholder="気になるワード" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
     </form>  
+
+    <!--↓↓ 検索フォーム ↓↓-->
+<!-- <div class="col-sm-4" style="padding:20px 0; padding-left:0px;">
+<form class="form-inline" action="{{url('/crud')}}">
+  <div class="form-group">
+  <input type="text" name="keyword" value="{{$keyword}}" class="form-control" placeholder="名前を入力してください">
+  </div>
+  <input type="submit" value="検索" class="btn btn-info">
+</form>
+</div> -->
+<!--↑↑ 検索フォーム ↑↑-->
 
   </div>
 </nav>
