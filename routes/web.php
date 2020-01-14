@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/event', 'EventController@index')->name('event.index');
-Route::get('/event', 'EventController@index')->name('event.index');
+Route::get('/event', 'EventController@index')->name('event.index');//一覧表示
 Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.destroy'); // 削除処理
- 
+Route::get('/event/search', 'EventController@search')->name('event.search'); //->以降のコードはindex.blade.phpのアクションで指名してもらえるように同じ名前をかく
