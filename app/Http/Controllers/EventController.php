@@ -29,7 +29,7 @@ class EventController extends Controller
         $events->picture_path = $request->picture_path;
         $events->save();
 
-        return view('events.create');//ここのURLをトップに変更
+        return redirect()->route('event.index');
     }
     // public function destroy(int $id)
     public function destroy(Event $event)
@@ -41,6 +41,26 @@ class EventController extends Controller
 
         //取得したデータを削除
         $event->delete();
+
+        return redirect()->route('event.index');
+    }
+    public function event_edit(int $id)
+    {
+        $event = Event::find($id); 
+
+        return view('events.edit', ['event' => $event]);//ここまでOK
+    }
+    public function event_update(int $id, Request $request)
+    {
+        $event = Event::find($id);
+
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->date = $request->date;
+        $event->place = $request->place;
+        $event->price = $request->price;
+        $event->picture_path = $request->picture_path;
+        $event->save();
 
         return redirect()->route('event.index');
     }
