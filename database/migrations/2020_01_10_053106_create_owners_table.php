@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJapaneseSakeTable extends Migration
+class CreateOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateJapaneseSakeTable extends Migration
      */
     public function up()
     {
-        Schema::create('Owner', function (Blueprint $table) {
+        Schema::create('owners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 10);
             $table->text('address');
             $table->text('email');
             $table->string('tel', 10);
-            $table->text('discription');
+            $table->text('description');
             $table->string('password', 10);
             $table->string('zipcode', 10);
             $table->string('picture_path');
@@ -33,6 +33,6 @@ class CreateJapaneseSakeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Owner');
+        Schema::dropIfExists('owners');
     }
 }
