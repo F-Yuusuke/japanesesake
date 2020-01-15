@@ -50,7 +50,8 @@ class EventController extends Controller
             //イベントに入っているキーワードから検索
             $events = DB::table('events')
             ->where('name', 'like', '%'.$keyword.'%')
-            ->paginate(4);
+            ->orWhere('description', 'like', '%'.$keyword.'%')// 複数のカラムから参照したいときはorWhereで同じようにかく
+            ->paginate(15); // これで検索結果を表示する数を決めれる
 
         }
 
