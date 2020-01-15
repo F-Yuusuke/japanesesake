@@ -10,4 +10,10 @@ class SakaguraController extends Controller
     {
         return view('sakagura.index');
     }
+
+    public function mypage()
+    {
+        return view('sakagura.mypage');
+    }
+
 }

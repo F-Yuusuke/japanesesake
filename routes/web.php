@@ -13,6 +13,9 @@
 
 Route::get('/event', 'EventController@index')->name('event.index'); 
 Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index'); 
+Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage'); 
+
+
 
 Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
     Route::get('/', function () {

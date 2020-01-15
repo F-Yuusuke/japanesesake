@@ -76,7 +76,7 @@ class RegisterController extends Controller
         $owner->password = $request->password;
         $owner->save();
 
-        return redirect()->route('sakagura');
+        return redirect()->route('sakagura.mypage');
     }
 
     public function showRegisterForm()

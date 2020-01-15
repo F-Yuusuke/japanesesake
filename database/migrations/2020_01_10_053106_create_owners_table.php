@@ -22,7 +22,8 @@ class CreateOwnersTable extends Migration
             $table->text('description');
             $table->string('password', 10);
             $table->string('zipcode', 10);
-            $table->string('picture_path');
+            $table->string('picture_path')->nullable();
+            $table->timestamps();
         });
     }
 
