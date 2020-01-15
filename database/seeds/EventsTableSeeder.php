@@ -34,7 +34,7 @@ class EventsTableSeeder extends Seeder
                 'owner_id' => '5',
             ],
             [
-                'name' => '蔵 concert',
+                'name' => '広島 concert',
                 'description'  => 'you can enjoy beautiful music at ....',
                 'date' => '2020-02-15 18:00:00',
                 'place' => 'efg酒蔵',

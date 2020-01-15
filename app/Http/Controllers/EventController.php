@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; //付け加えた
 
 class EventController extends Controller
 {
@@ -11,7 +12,10 @@ class EventController extends Controller
     {
         $events = Event::all(); 
 
-        return view('events.index',['events' => $events]);
+        return view('events.index',[
+            'events' => $events,
+            // 'keyword' => "kkkkk"
+        ]);
     }
 
     // public function destroy(int $id)
@@ -30,7 +34,7 @@ class EventController extends Controller
 
 
     // 追加
-    public function search()
+    public function search(Request $request)
     {
         // return 'Hello World';
         // return view('student.list')->with('students',$students); 検索機能
@@ -38,19 +42,24 @@ class EventController extends Controller
         $events = Event::all();
 
         //キーワードを取得
-        $keyword = $request->input('search');
+        $keyword = $request->input('keyword');
 
           #もしキーワードがあったら
         if(!empty($keyword))
         {
-        $query->where('event','like','%'.$keyword.'%')
-        ->paginate(4);
-        // ->orWhere('mail','like','%'.$keyword.'%');
+            //イベントに入っているキーワードから検索
+            $events = DB::table('events')
+            ->where('name', 'like', '%'.$keyword.'%')
+            ->paginate(4);
+
         }
 
         return view('events.index',['events' => $events]);
+        // 'events.index'はここのURLに情報を返してくださいと言う事
     }
 
 }
+
+
 
 

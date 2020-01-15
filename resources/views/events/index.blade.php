@@ -33,12 +33,9 @@
         <a class="nav-link" href="#">酒蔵の方はこちら</a>
       </li>
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0" action="{{ route('event.search') }}">
-      <input class="form-control mr-sm-2" type="search" placeholder="気になるワード" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-    </form>   -->
+
     <form class="form-inline my-2 my-lg-0" action="{{ route('event.search') }}"><!-- アクションの書き方はこれがマスト 意味は検索がクリックされたらルートevent.searchに行く -->
-      <input class="form-control mr-sm-2" name="keyword" value="{{ $keyword }}" type="search" placeholder="気になるワード" aria-label="Search">
+      <input class="form-control mr-sm-2" name="keyword" value="{{ old('keyword') }}" type="search" placeholder="気になるワード" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
     </form>  
 
@@ -63,7 +60,6 @@
             </form>
         </div>
     @endforeach
-
     
 
 
