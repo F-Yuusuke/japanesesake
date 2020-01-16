@@ -30,7 +30,7 @@
         <a class="nav-link" href="#">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">酒蔵の方はこちら</a>
+        <a class="nav-link" href="/sakagura">酒蔵の方はこちら</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
