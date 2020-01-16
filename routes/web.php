@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::get('/event', 'EventController@index')->name('event.index');//一覧表示 ここの場合->name('event.index');はなくてもOK でも今後こっちの方が便利になるかもしれないから書いている
+Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.destroy'); // 削除処理
+Route::get('/event/search', 'EventController@search')->name('event.search'); //->以降のコードはindex.blade.phpのアクションで指名してもらえるように同じ名前をかく
+// '/event/search'は別に画面遷移するというわけではなく同じページでもURLは違っていてもOK
 Route::get('/event', 'EventController@index')->name('event.index'); 
 Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index'); 
 Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage'); 
@@ -54,3 +59,4 @@ Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.de
 
 Route::get('event/{event}/edit', 'EventController@event_edit')->name('event.edit'); // 編集画面
 Route::put('event/{event}/update', 'EventController@event_update')->name('event.update'); // 更新処理
+
