@@ -18,8 +18,7 @@ Route::get('/event/search', 'EventController@search')->name('event.search'); //-
 // '/event/search'は別に画面遷移するというわけではなく同じページでもURLは違っていてもOK
 Route::get('/event', 'EventController@index')->name('event.index'); 
 Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index'); 
-Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage'); 
-
+Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage'); // このルートのままで新規登録の人のマイページはOK
 
 // 酒蔵新規登録・ログイン・ログアウト用
 Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
@@ -43,7 +42,7 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function(){
 // 酒蔵側の認証機能
 // 以下のページはログインしているときのみ表示
 Route::group(['middleware' => 'auth'], function() {
-
+    Route::get('/owner/mypage', 'Controller@mypage')->name('owner.mypage');// ここはownerのマイページを表示させたい。が、既存のコントローラーをしようするべきか新規で作るかどうすればいんでしょうか。一応今は空白Controllerと書いてはいます。
 
 });
 
@@ -59,4 +58,3 @@ Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.de
 
 Route::get('event/{event}/edit', 'EventController@event_edit')->name('event.edit'); // 編集画面
 Route::put('event/{event}/update', 'EventController@event_update')->name('event.update'); // 更新処理
-
