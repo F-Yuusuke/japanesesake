@@ -57,11 +57,13 @@
               @csrf
               @method('delete')
               <button class="btn btn-danger">削除</button>
+              <a class="btn btn-success" href="{{ route('event.edit', ['id' => $event->id]) }}" method="post" class="d-inline">編集</a>
             </form>
         </div>
     @endforeach
     
 
+    <a href="{{ route('event.create') }}" class="btn btn-primary btn-block">イベント新規登録</a>
 
 </body>
 </html>

@@ -17,7 +17,24 @@ class EventController extends Controller
             // 'keyword' => "kkkkk"
         ]);
     }
+    public function event_create()//新規投稿
+    {
+        return view('events.create');
+    }
+    public function event_store(Request $request)//DBに保存
+    {
+        $events = new Event();
 
+        $events->name = $request->name;
+        $events->description = $request->description;
+        $events->date = $request->date;
+        $events->place = $request->place;
+        $events->price = $request->price;
+        $events->picture_path = $request->picture_path;
+        $events->save();
+
+        return redirect()->route('event.index');
+    }
     // public function destroy(int $id)
     public function destroy(Event $event)
    {
@@ -59,6 +76,26 @@ class EventController extends Controller
         // 'events.index'はここのURLに情報を返してくださいと言う事
     }
 
+    public function event_edit(int $id)
+    {
+        $event = Event::find($id); 
+
+        return view('events.edit', ['event' => $event]);//ここまでOK
+    }
+    public function event_update(int $id, Request $request)
+    {
+        $event = Event::find($id);
+
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->date = $request->date;
+        $event->place = $request->place;
+        $event->price = $request->price;
+        $event->picture_path = $request->picture_path;
+        $event->save();
+
+        return redirect()->route('event.index');
+    }
 }
 
 
