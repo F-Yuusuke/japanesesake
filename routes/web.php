@@ -19,7 +19,7 @@ Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypa
 
 Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
     Route::get('/', function () {
-        return view('sakagura.welcome');
+        return view('sakagura');
     });
     Route::get('login', 'Owner\Auth\LoginController@showLoginForm')->name('owner.login');
     Route::post('login', 'Owner\Auth\LoginController@login')->name('owner.login');

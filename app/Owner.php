@@ -30,4 +30,10 @@ class Owner extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
 }

@@ -77,7 +77,7 @@ return [
 
         'owners' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => App\Owner::class,
         ]
 
         // 'users' => [

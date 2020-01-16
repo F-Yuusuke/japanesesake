@@ -47,11 +47,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Request $request)
     {
-        return Validator::make($data, [
+        return Validator::make($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:owners',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $owner->description = $request->description;
         $owner->zipcode = $request->zipcode;
         $owner->picture_path = $request->picture_path;
-        $owner->password = $request->password;
+        $owner->password = Hash::make($request->newPassword);
         $owner->save();
 
         return redirect()->route('sakagura.mypage');

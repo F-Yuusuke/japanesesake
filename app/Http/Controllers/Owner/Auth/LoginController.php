@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/sakagura/mypage';
+    protected $redirectTo = '';
 
     /**
      * Create a new controller instance.
@@ -37,6 +37,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    
+
+    public function showLoginForm()
+    {
+        return view('sakagura.auth.login'); //酒蔵ログインページのテンプレート
     }
 
     // public function logout(Request $request)
@@ -48,9 +54,17 @@ class LoginController extends Controller
     //     return $this->loggedOut($request) ?: redirect('/sakagura/');  // ログアウト後のリダイレクト先
     // }
 
+    public function login()
+    {
+        Auth::login();
+        
+    }
+
     public function doLogout()
     {
         Auth::logout();
         return Redirect::to('/sakagura');
     }
+
+    
 }
