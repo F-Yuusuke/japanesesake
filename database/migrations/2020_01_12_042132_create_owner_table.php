@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration
+class CreateOwnerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('owner', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 30);
-            $table->text('description');
-            $table->string('date');
-            $table->string('place');
-            $table->integer('price');
+            $table->string('name', 10);
+            $table->text('address');
+            $table->text('email');
+            $table->string('tel', 10);
+            $table->text('discription');
+            $table->string('password', 10);
+            $table->string('zipcode', 10);
             $table->string('picture_path');
-            // $table->increments('owner_id');後で作る
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('owner');
     }
 }

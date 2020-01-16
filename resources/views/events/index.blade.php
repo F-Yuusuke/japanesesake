@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/app.css">
@@ -35,7 +36,8 @@
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form>  
+
   </div>
 </nav>
 
@@ -48,7 +50,16 @@
             <p>{{ $event->price }}</p>
             <p>{{ $event->picture_path }}</p>
             <p>{{ $event->owner_id }}</p>
+            <form action="{{ route('event.destroy', ['id' => $event->id]) }}" method="post" class="d-inline">
+              @csrf
+              @method('delete')
+              <button class="btn btn-danger">削除</button>
+              <a class="btn btn-success" href="{{ route('event.edit', ['id' => $event->id]) }}" method="post" class="d-inline">編集</a>
+            </form>
         </div>
     @endforeach
+
+    <a href="{{ route('event.create') }}" class="btn btn-primary btn-block">イベント新規登録</a>
+
 </body>
 </html>

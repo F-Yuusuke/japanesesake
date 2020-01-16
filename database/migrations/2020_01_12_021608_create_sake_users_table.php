@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration
+class CreateSakeUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('sake_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 30);
-            $table->text('description');
-            $table->string('date');
-            $table->string('place');
-            $table->integer('price');
-            $table->string('picture_path');
-            // $table->increments('owner_id');後で作る
-            $table->timestamps();
+            $table->string('email');
+            $table->string('password', 10);
+            $table->integer('sex');
+            $table->integer('country_id');
+            $table->date('birthday');
+            $table->boolean('blacklist');
+
         });
     }
 
@@ -33,6 +33,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('sake_users');
     }
 }
