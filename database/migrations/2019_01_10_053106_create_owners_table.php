@@ -20,7 +20,7 @@ class CreateOwnersTable extends Migration
             $table->text('email');
             $table->string('tel', 10);
             $table->text('description');
-            $table->string('password', 10);
+            $table->string('password');
             $table->string('zipcode', 10);
             $table->string('picture_path')->nullable();
             $table->timestamps();

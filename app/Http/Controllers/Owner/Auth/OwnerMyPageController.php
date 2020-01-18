@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers\Owner\Auth;
 
-use App\Http\Controllers\Owner\Auth;
+// use App\Http\Controllers\Owner\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use app\Http\Controllers\Owner\Auth\OwnerMyPageController;
-use App\Http\Controllers\Owner\Auth\owner;
+use App\Owner;
+use \Auth;
 
 class OwnerMyPageController extends Controller
 {
     public function index()
     {
-        $owner = owner::all(); 
-        return Redirect::to('/sakagura');
+        // $owners = Owner::all();
+        $auths = Auth::owner();
+        // dd($owners);
+        return view('sakagura.mypage', [
+            // ☝️はここで処理をした情報をどのviewに渡すかの道しるべを書いている
+            'auths' => $auths,  
+            'owners' => $owners,
+            'hoge' => 3
+        ]);
     }
 }

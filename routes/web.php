@@ -36,15 +36,16 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
 Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function(){
     Route::post('logout', 'Owner\Auth\LoginController@logout')->name('owner.logout');
     Route::get('home', 'Owner\HomeController@index')->name('owner.home');
+
 });
 
 // 酒蔵側の認証機能
 // 以下のページはログインしているときのみ表示
-Route::get('/owner/mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');// ここはownerのマイページを表示させたい。が、既存のコントローラーをしようするべきか新規で作るかどうすればいんでしょうか。一応今は空白Controllerと書いてはいます。
-// Route::group(['middleware' => 'auth'], function() {
-//     Route::get('/owner/mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');// ここはownerのマイページを表示させたい。が、既存のコントローラーをしようするべきか新規で作るかどうすればいんでしょうか。一応今は空白Controllerと書いてはいます。
-//                                     // 👆はOwnerMypageController.phpのnamespace App\Http\Controllers\Owner\Auth;と同じ事をかく ここでlaravelさんに辿りついてもらうために書かないといけない じゃないと見つけてもらえなくなる
-// });
+// Route::get('/owner/mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');
+Route::group(['prefix' => 'owner','middleware' => 'auth'], function() {
+    Route::get('mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');
+                                    // 👆はOwnerMypageController.phpのnamespace App\Http\Controllers\Owner\Auth;と同じ事をかく ここでlaravelさんに辿りついてもらうために書かないといけない じゃないと見つけてもらえなくなる
+});
 
 Auth::routes();
 
