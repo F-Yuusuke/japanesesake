@@ -16,11 +16,8 @@ Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index');
 Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage'); 
 
 
-// 酒蔵新規登録・ログイン・ログアウト用
+// 酒蔵新規登録・ログイン用
 Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
-    Route::get('/', function () {
-        return view('sakagura');
-    });
     Route::get('login', 'Owner\Auth\LoginController@showLoginForm')->name('owner.login');
     Route::post('login', 'Owner\Auth\LoginController@login')->name('owner.login');
 
@@ -30,7 +27,12 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
     // Route::get('password/rest', 'Owner\Auth\ForgotPasswordController@showLinkRequestForm')->name('owner.password.request');
 });
 
-Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function(){
+// 酒蔵ログアウト用
+Route::group(['prefix' => 'sakagura/mypage', 'middleware' => 'auth:owner'], function(){
+    Route::get('/', function () {
+        return view('sakagura.mypage');
+    });
+
     Route::post('logout', 'Owner\Auth\LoginController@logout')->name('owner.logout');
     Route::get('home', 'Owner\HomeController@index')->name('owner.home');
 });
