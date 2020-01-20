@@ -44,6 +44,9 @@
     @foreach ($events as $event)
         <div class="m-4 p-4 border border-primary">
             <h1>{{ $event->name }}</h1>
+
+
+
             <p>{{ $event->description }}</p>
             <p>{{ $event->date }}</p>
             <p>{{ $event->place }}</p>
