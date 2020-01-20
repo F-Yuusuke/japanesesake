@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/event', 'EventController@index')->name('event.index');
-Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index');
-Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage');
+Route::get('/event', 'EventController@index')->name('event.index'); 
+Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index'); 
+Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage'); 
 
 
 // 酒蔵新規登録・ログイン・ログアウト用
@@ -54,7 +54,3 @@ Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.de
 
 Route::get('event/{event}/edit', 'EventController@event_edit')->name('event.edit'); // 編集画面
 Route::put('event/{event}/update', 'EventController@event_update')->name('event.update'); // 更新処理
-
-Route::get('event/{id}/apply', 'EventController@event_apply')->name('event.apply'); // 申込画面
-Route::put('event/{id}/applyed', 'EventController@event_applyed')->name('event.applyed'); // 申込更新処理
-Route::delete('event/{id}/applydelete', 'EventController@event_applydestroy')->name('event.applydestroy'); // 申込削除処理

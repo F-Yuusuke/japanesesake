@@ -55,7 +55,6 @@
               @method('delete')
               <button class="btn btn-danger">削除</button>
               <a class="btn btn-success" href="{{ route('event.edit', ['id' => $event->id]) }}" method="post" class="d-inline">編集</a>
-              <a class="btn btn-success" href="{{ route('event.apply', ['id' => $event->id]) }}" method="post" class="d-inline">申込</a>
             </form>
         </div>
     @endforeach

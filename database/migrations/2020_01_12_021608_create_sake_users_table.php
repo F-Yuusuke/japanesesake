@@ -18,10 +18,10 @@ class CreateSakeUsersTable extends Migration
             $table->string('name', 30);
             $table->string('email');
             $table->string('password', 10);
-            $table->string('sex', 10);//integer
-            $table->string('country_id', 20);//integer
-            $table->string('birthday', 10);//date
-            $table->string('blacklist', 10);//boolean
+            $table->integer('sex');
+            $table->integer('country_id');
+            $table->date('birthday');
+            $table->boolean('blacklist');
 
         });
     }

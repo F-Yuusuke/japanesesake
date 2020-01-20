@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Event;
-use App\Event_user;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = Event::all(); 
 
         return view('events.index',['events' => $events]);
     }
@@ -37,7 +36,7 @@ class EventController extends Controller
    {
     //    dd($event);
         //Diaryモデルを使用して、diariesテーブルから$idと一致するidをもつデータを取得
-        // $event = Event::find($id);
+        // $event = Event::find($id); 
         // dd($event);
 
         //取得したデータを削除
@@ -47,7 +46,7 @@ class EventController extends Controller
     }
     public function event_edit(int $id)
     {
-        $event = Event::find($id);
+        $event = Event::find($id); 
 
         return view('events.edit', ['event' => $event]);//ここまでOK
     }
@@ -62,30 +61,6 @@ class EventController extends Controller
         $event->price = $request->price;
         $event->picture_path = $request->picture_path;
         $event->save();
-
-        return redirect()->route('event.index');
-    }
-
-    public function event_apply(int $id)//申込
-    {
-        $event = Event::find($id);
-
-        // return redirect()->route('event.apply');
-
-        return view('events.apply', ['event' => $event]);
-    }
-    public function event_applyed(int $id, Request $request)//申込完了
-    {
-        $event_users = new Event_user();
-
-        $event_users->User_id = $request->id;
-        $event_users->Event_id = '000';//仮設id
-        $event_users->People_count = '1';
-        $event_users->Special_comment = $request->Special_comment;
-
-        // dd($event_user);
-        // $event_user = Event_user::where('id', $id)->with('event_user')->first();
-        $event_users->save();
 
         return redirect()->route('event.index');
     }
