@@ -15,8 +15,8 @@ class OwnerMyPageController extends Controller
         // $owners = Owner::all();
         $auths = Auth::owner();
         // dd($owners);
-        return view('sakagura.mypage', [
-            // ☝️はここで処理をした情報をどのviewに渡すかの道しるべを書いている
+        return view('owner.mypage', [
+                     // ☝️はここで処理をした情報をどのviewに渡すかの道しるべを書いている
             'auths' => $auths,  
             'owners' => $owners,
             'hoge' => 3

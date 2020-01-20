@@ -24,6 +24,9 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
     Route::get('/', function () {
         return view('sakagura');
     });
+    
+    
+
     Route::get('login', 'Owner\Auth\LoginController@showLoginForm')->name('owner.login');
     Route::post('login', 'Owner\Auth\LoginController@login')->name('owner.login');
 
@@ -43,9 +46,9 @@ Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function(){
 // 以下のページはログインしているときのみ表示
 // Route::get('/owner/mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');
 Route::group(['prefix' => 'owner','middleware' => 'auth'], function() {
-    Route::get('mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');
-                                    // 👆はOwnerMypageController.phpのnamespace App\Http\Controllers\Owner\Auth;と同じ事をかく ここでlaravelさんに辿りついてもらうために書かないといけない じゃないと見つけてもらえなくなる
+    Route::get('owner/mypage', 'Owner\Auth\OwnerMyPageController@index')->name('owner.mypage');
 });
+                                // 👆はOwnerMypageController.phpのnamespace App\Http\Controllers\Owner\Auth;と同じ事をかく ここでlaravelさんに辿りついてもらうために書かないといけない じゃないと見つけてもらえなくなる
 
 Auth::routes();
 
