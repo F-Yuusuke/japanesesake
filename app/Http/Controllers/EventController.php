@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Event_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; //付け加えた
 
 class EventController extends Controller
 {
@@ -12,7 +13,10 @@ class EventController extends Controller
     {
         $events = Event::all();
 
-        return view('events.index',['events' => $events]);
+        return view('events.index',[
+            'events' => $events,
+            // 'keyword' => "kkkkk"
+        ]);
     }
     public function event_create()//新規投稿
     {
@@ -45,6 +49,34 @@ class EventController extends Controller
 
         return redirect()->route('event.index');
     }
+
+
+    // 追加
+    public function search(Request $request)
+    {
+        // return 'Hello World';
+        // return view('student.list')->with('students',$students); 検索機能
+
+        $events = Event::all();
+
+        //キーワードを取得
+        $keyword = $request->input('keyword');
+
+          #もしキーワードがあったら
+        if(!empty($keyword))
+        {
+            //イベントに入っているキーワードから検索
+            $events = DB::table('events')
+            ->where('name', 'like', '%'.$keyword.'%')
+            ->orWhere('description', 'like', '%'.$keyword.'%')// 複数のカラムから参照したいときはorWhereで同じようにかく
+            ->paginate(15); // これで検索結果を表示する数を決めれる
+
+        }
+
+        return view('events.index',['events' => $events]);
+        // 'events.index'はここのURLに情報を返してくださいと言う事
+    }
+
     public function event_edit(int $id)
     {
         $event = Event::find($id);
@@ -90,5 +122,7 @@ class EventController extends Controller
         return redirect()->route('event.index');
     }
 }
+
+
 
 

@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '';
+    protected $redirectTo = '/sakagura/mypage';
 
     /**
      * Create a new controller instance.
@@ -37,6 +37,11 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function guard()
+    {
+        return \Auth::guard('owner');
     }
     
 
@@ -54,16 +59,19 @@ class LoginController extends Controller
     //     return $this->loggedOut($request) ?: redirect('/sakagura/');  // ログアウト後のリダイレクト先
     // }
 
-    public function login()
-    {
-        Auth::login();
-        
-    }
+    // public function username()
+    // {
+    //     return 'email';
+    // }
 
-    public function doLogout()
+
+    public function logout(Request $request)
     {
-        Auth::logout();
-        return Redirect::to('/sakagura');
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/sakagura');  // ログアウト後のリダイレクト先
     }
 
     

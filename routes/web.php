@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/event', 'EventController@index')->name('event.index');
+
+Route::get('/event', 'EventController@index')->name('event.index');//一覧表示 ここの場合->name('event.index');はなくてもOK でも今後こっちの方が便利になるかもしれないから書いている
+Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.destroy'); // 削除処理
+Route::get('/event/search', 'EventController@search')->name('event.search'); //->以降のコードはindex.blade.phpのアクションで指名してもらえるように同じ名前をかく
+// '/event/search'は別に画面遷移するというわけではなく同じページでもURLは違っていてもOK
+// Route::get('/event', 'EventController@index')->name('event.index');
 Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index');
 Route::get('/sakagura/mypage', 'SakaguraController@mypage')->name('sakagura.mypage');
 
 
-// 酒蔵新規登録・ログイン・ログアウト用
+// 酒蔵新規登録・ログイン用
 Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
-    Route::get('/', function () {
-        return view('sakagura');
-    });
     Route::get('login', 'Owner\Auth\LoginController@showLoginForm')->name('owner.login');
     Route::post('login', 'Owner\Auth\LoginController@login')->name('owner.login');
 
@@ -30,7 +32,12 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function() {
     // Route::get('password/rest', 'Owner\Auth\ForgotPasswordController@showLinkRequestForm')->name('owner.password.request');
 });
 
-Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function(){
+// 酒蔵ログアウト用
+Route::group(['prefix' => 'sakagura/mypage', 'middleware' => 'auth:owner'], function(){
+    Route::get('/', function () {
+        return view('sakagura.mypage');
+    });
+
     Route::post('logout', 'Owner\Auth\LoginController@logout')->name('owner.logout');
     Route::get('home', 'Owner\HomeController@index')->name('owner.home');
 });
