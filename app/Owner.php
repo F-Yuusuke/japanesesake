@@ -16,7 +16,7 @@ class Owner extends Authenticatable
      *
      * @var array
      */
-    
+
     protected $fillable = [
         'name', 'address', 'email', 'tel', 'description', 'password', 'zipcode', 'picture_path'
     ];
