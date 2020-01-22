@@ -37,7 +37,7 @@
     <form class="form-inline my-2 my-lg-0" action="{{ route('event.search') }}"><!-- アクションの書き方はこれがマスト 意味は検索がクリックされたらルートevent.searchに行く -->
       <input class="form-control mr-sm-2" name="keyword" value="{{ old('keyword') }}" type="search" placeholder="気になるワード" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-    </form>  
+    </form>
 
 
 
@@ -51,7 +51,7 @@
             <p>{{ $event->date }}</p>
             <p>{{ $event->place }}</p>
             <p>{{ $event->price }}</p>
-            <p>{{ $event->picture_path }}</p>
+            <img height="100px" src="{{ $event->picture_path }}" >
             <p>{{ $event->owner_id }}</p>
             <form action="{{ route('event.destroy', ['id' => $event->id]) }}" method="post" class="d-inline">
               @csrf
@@ -62,7 +62,7 @@
             </form>
         </div>
     @endforeach
-    
+
 
     <a href="{{ route('event.create') }}" class="btn btn-primary btn-block">イベント新規登録</a>
 

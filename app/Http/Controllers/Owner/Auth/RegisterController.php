@@ -82,7 +82,7 @@ class RegisterController extends Controller
         $owner->password = Hash::make($request->password);
         $owner->save();
 
-        return view('sakagura.mypage');
+        return redirect()->route('sakagura.mypage');
     }
 
     public function showRegisterForm()
