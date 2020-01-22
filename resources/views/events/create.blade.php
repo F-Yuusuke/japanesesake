@@ -34,10 +34,15 @@
                         <label for="title">place</label>
                         <input type="text" class="form-control" name="place" id="place" />
                     </div>
-                    <!-- 開催地 -->
+                    <!-- 値段 -->
                     <div class="form-group">
                         <label for="title">price</label>
                         <input type="text" class="form-control" name="price" id="price" />
+                    </div>
+                    <!-- オーナーID -->
+                    <div class="form-group">
+                        <label for="title">owner_id</label>
+                        <input type="text" class="form-control" name="owner_id" id="owner_id" />
                     </div>
                     <!-- 画像 -->
                     <!-- <div class="form-group">

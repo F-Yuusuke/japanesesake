@@ -9,7 +9,7 @@ class EventController extends Controller
 {
     public function index() //イベント一覧表示
     {
-        $events = Event::all(); 
+        $events = Event::all();
 
         return view('events.index',['events' => $events]);
     }
@@ -19,7 +19,7 @@ class EventController extends Controller
     {
         return view('events.create');
     }
-    
+
 
     public function event_store(Request $request) //DBに保存
     {
@@ -31,12 +31,13 @@ class EventController extends Controller
         $events->date = $request->date;
         $events->place = $request->place;
         $events->price = $request->price;
-        $events->picture_path = $request->img_path;
+        $events->owner_id = $request->owner_id;
+        $events->picture_path = $imgPath;
         $events->save();
 
         return redirect()->route('event.index');
     }
-    
+
 
 
     // public function destroy(int $id)
@@ -44,7 +45,7 @@ class EventController extends Controller
    {
     //    dd($event);
         //Diaryモデルを使用して、diariesテーブルから$idと一致するidをもつデータを取得
-        // $event = Event::find($id); 
+        // $event = Event::find($id);
         // dd($event);
 
         //取得したデータを削除
@@ -56,7 +57,7 @@ class EventController extends Controller
 
     public function event_edit(int $id)  //イベント編集
     {
-        $event = Event::find($id); 
+        $event = Event::find($id);
 
         return view('events.edit', ['event' => $event]);//ここまでOK
     }
@@ -91,17 +92,17 @@ class EventController extends Controller
         ], [], [
             'name' => 'イベント名',
             'description' => '詳細',
-            'date' => '日時',  
-            'place' => '会場',  
-            'price' => '値段',  
-            'picture_path' => 'イベント画像'  
+            'date' => '日時',
+            'place' => '会場',
+            'price' => '値段',
+            'picture_path' => 'イベント画像'
         ]);
     }
 
     private function saveEventImage($image) //画像登録
-    { 
+    {
         $imgPath = $image->store('images/eventPicture', 'public');
-   
+
         return 'storage/' . $imgPath;
     }
 }
