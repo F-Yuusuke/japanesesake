@@ -7,7 +7,6 @@ use App\Owner;
 use Illuminate\Support\Facades\Auth;
 use App\Event_user;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 
 class EventController extends Controller

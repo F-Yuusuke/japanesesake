@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Owner;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Owner;
 use \Auth;
 use App\Event;
 
 
-class SakaguraController extends Controller
+class OwnerController extends Controller
 {
     public function index()
     {
