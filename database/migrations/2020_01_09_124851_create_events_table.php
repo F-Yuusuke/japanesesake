@@ -33,6 +33,10 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        // Schema::dropIfExists('events');
+
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('picture_path'); 
+        });
     }
 }
