@@ -53,3 +53,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 // ⑤外国人ユーザー認証関連
 Auth::routes();
+Route::get('event/{id}/apply', 'Auth\LoginController@showLoginForm')->name('login'); //
+Route::get('event/{id}/apply', 'EventController@event_apply')->name('event.apply'); // event一覧ページのエラー回避のためとりあえず。。。

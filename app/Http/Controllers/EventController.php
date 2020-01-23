@@ -69,7 +69,7 @@ class EventController extends Controller
         // $event_user = Event_user::where('id', $id)->with('event_user')->first();
         $event_users->save();
 
-        return redirect()->route('event.index');
+        return redirect()->route('event.index')->with('message', 'booking confirmed');
     }
 }
 
