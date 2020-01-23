@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function guard()
     {
-        return \Auth::guard('owner');
+        return Auth::guard('owner');
     }
 
 

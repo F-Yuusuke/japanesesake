@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Owner;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //付け加えた
 
@@ -10,7 +12,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all(); 
+        $events = Event::all();
 
         return view('events.index',[
             'events' => $events,
@@ -30,6 +32,7 @@ class EventController extends Controller
         $events->date = $request->date;
         $events->place = $request->place;
         $events->price = $request->price;
+        $events->owner_id = Owner::owner()->id;
         $events->picture_path = $request->picture_path;
         $events->save();
 
@@ -40,7 +43,7 @@ class EventController extends Controller
    {
     //    dd($event);
         //Diaryモデルを使用して、diariesテーブルから$idと一致するidをもつデータを取得
-        // $event = Event::find($id); 
+        // $event = Event::find($id);
         // dd($event);
 
         //取得したデータを削除
@@ -78,7 +81,7 @@ class EventController extends Controller
 
     public function event_edit(int $id)
     {
-        $event = Event::find($id); 
+        $event = Event::find($id);
 
         return view('events.edit', ['event' => $event]);//ここまでOK
     }
