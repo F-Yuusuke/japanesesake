@@ -21,13 +21,13 @@ Route::get('/event/search', 'EventController@search')->name('event.search'); //-
 // ②酒蔵ログインしてる場合だけ行える処理
 Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function () {
     // Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index');
-    Route::get('/', 'Owner\OwnerController@mypage')->name('sakagura.mypage');
+    Route::get('/', 'Owner\OwnerController@mypage')->name('owner.mypage');
     Route::post('logout', 'Owner\Auth\LoginController@logout')->name('owner.logout');
-    Route::get('event/create', 'EventController@event_create')->name('event.create');//イベント登録
-    Route::post('event/create', 'EventController@event_store')->name('event.store');//イベント保存
-    Route::delete('event/{event}/delete', 'EventController@destroy')->name('event.destroy'); // 削除処理
-    Route::get('event/{event}/edit', 'EventController@event_edit')->name('event.edit'); // 編集画面
-    Route::put('event/{event}/update', 'EventController@event_update')->name('event.update'); // 更新処理
+    Route::get('event/create', 'Owner\EventController@create')->name('event.create');//イベント登録
+    Route::post('event/create', 'Owner\EventController@store')->name('event.store');//イベント保存
+    Route::delete('event/{event}/delete', 'Owner\EventController@destroy')->name('event.destroy'); // 削除処理
+    Route::get('event/{event}/edit', 'Owner\EventController@edit')->name('event.edit'); // 編集画面
+    Route::put('event/{event}/update', 'Owner\EventController@update')->name('event.update'); // 更新処理
 });
 
 

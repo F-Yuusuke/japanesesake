@@ -7,6 +7,7 @@ use App\Owner;
 use Illuminate\Support\Facades\Auth;
 use App\Event_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; //付け加えた
 
 
 class EventController extends Controller
@@ -19,96 +20,29 @@ class EventController extends Controller
     }
 
 
-    public function event_create() //新規投稿
+    public function search(Request $request)
     {
-        return view('events.create');
-    }
+        // return 'Hello World';
+        // return view('student.list')->with('students',$students); 検索機能
 
+        $events = Event::all();
 
-    public function event_store(Request $request) //DBに保存
-    {
-        $events = new Event();
-        $imgPath = $this->saveEventImage($request['picture']);
+        //キーワードを取得
+        $keyword = $request->input('keyword');
 
-        $events->name = $request->name;
-        $events->description = $request->description;
-        $events->date = $request->date;
-        $events->place = $request->place;
-        $events->price = $request->price;
-        $events->owner_id = $request->owner_id;
-        // $events->owner_id = Owner::owner()->id;
-        $events->picture_path = $imgPath;
-        $events->save();
+          #もしキーワードがあったら
+        if(!empty($keyword))
+        {
+            //イベントに入っているキーワードから検索
+            $events = DB::table('events')
+            ->where('name', 'like', '%'.$keyword.'%')
+            ->orWhere('description', 'like', '%'.$keyword.'%')// 複数のカラムから参照したいときはorWhereで同じようにかく
+            ->paginate(15); // これで検索結果を表示する数を決めれる
 
-        return redirect()->route('event.index');
-    }
+        }
 
-
-
-    // public function destroy(int $id)
-    public function destroy(Event $event)
-   {
-    //    dd($event);
-        //Diaryモデルを使用して、diariesテーブルから$idと一致するidをもつデータを取得
-        // $event = Event::find($id);
-        // dd($event);
-
-        //取得したデータを削除
-        $event->delete();
-
-        return redirect()->route('event.index');
-    }
-
-
-    public function event_edit(int $id)  //イベント編集
-    {
-        $event = Event::find($id);
-
-        return view('events.edit', ['event' => $event]);//ここまでOK
-    }
-
-
-    public function event_update(int $id, Request $request)
-    {
-        $event = Event::find($id);
-        $imgPath = $this->saveProfileImage($event['picture']);
-
-        $event->name = $request->name;
-        $event->description = $request->description;
-        $event->date = $request->date;
-        $event->place = $request->place;
-        $event->price = $request->price;
-        $event->picture_path = $request->imgPath;
-        $event->save();
-
-        return redirect()->route('event.index');
-    }
-
-
-    protected function validator(array $event) //バリデーション
-    {
-        return Validator::make($event, [
-            'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'date' => ['required', 'string', 'min:6', 'confirmed'],
-            'place' => ['required', 'string', 'min:6', 'confirmed'],
-            'price' => ['required', 'string', 'min:6', 'confirmed'],
-            'picture_path' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
-        ], [], [
-            'name' => 'イベント名',
-            'description' => '詳細',
-            'date' => '日時',
-            'place' => '会場',
-            'price' => '値段',
-            'picture_path' => 'イベント画像'
-        ]);
-    }
-
-    private function saveEventImage($image) //画像登録
-    {
-        $imgPath = $image->store('images/eventPicture', 'public');
-
-        return 'storage/' . $imgPath;
+        return view('events.index',['events' => $events]);
+        // 'events.index'はここのURLに情報を返してくださいと言う事
     }
 
 
@@ -120,6 +54,8 @@ class EventController extends Controller
 
         return view('events.apply', ['event' => $event]);
     }
+
+
     public function event_applyed(int $id, Request $request)//申込完了
     {
         $event_users = new Event_user();
