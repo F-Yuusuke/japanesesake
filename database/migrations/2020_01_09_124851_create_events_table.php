@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('place');
             $table->integer('price');
             $table->string('picture_path');
-            // $table->integer('owner_id'); //後で作る
+            $table->integer('owner_id'); //後で作る
             $table->timestamps();
         });
     }

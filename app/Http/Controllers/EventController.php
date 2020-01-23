@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Owner;
+use Illuminate\Support\Facades\Auth;
 use App\Event_user;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class EventController extends Controller
         $events->date = $request->date;
         $events->place = $request->place;
         $events->price = $request->price;
-        $events->owner_id = $request->owner_id;
+        $events->owner_id = Owner::owner()->id;
         $events->picture_path = $imgPath;
         $events->save();
 

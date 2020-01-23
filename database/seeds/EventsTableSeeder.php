@@ -22,7 +22,7 @@ class EventsTableSeeder extends Seeder
                 'place' => 'abc酒蔵',
                 'price' => '1000',
                 'picture_path' => 'aaaaaaa',
-                'owner_id' => '3',
+                'owner_id' => '1',
             ],
             [
                 'name' => '蔵 concert',
@@ -31,7 +31,7 @@ class EventsTableSeeder extends Seeder
                 'place' => 'efg酒蔵',
                 'price' => '2000',
                 'picture_path' => 'bbbbbbb',
-                'owner_id' => '5',
+                'owner_id' => '2',
             ],
             [
                 'name' => '広島 concert',
@@ -40,9 +40,9 @@ class EventsTableSeeder extends Seeder
                 'place' => 'efg酒蔵',
                 'price' => '2000',
                 'picture_path' => 'bbbbbbb',
-                'owner_id' => '5',
+                'owner_id' => '2',
             ],
-            
+
         ];
 
         foreach ($events as $event) {
