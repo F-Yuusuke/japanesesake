@@ -23,8 +23,7 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="title">what is your name?</label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $event->name) }}">
+                        <label for="title">event title is "{{ old('name', $event->name) }}"</label>
                     </div>
                     <div class="form-group">
                         <label for="body">shall we help you?</label>
@@ -32,14 +31,8 @@
                     </div>
 
                     <!-- 隠して移動してしてる値 -->
-                    <div type="text" name="id" id="id" value="{{ old('id', $event->id) }}"></div><!--Event_id-->
-                    <div type="text" name="id" id="id" value="{{-- old('id', $User->id) --}}"></div>
-
-                    <!-- ユーザーid仮設たち -->
-                    <div class="form-group">
-                        <label for="body">とりあえずないので仮設</label>
-                        <textarea class="form-control" name="Userid" id="Userid">{{ old('Userid') }}</textarea>
-                    </div>
+                    <input type="hidden" class="form-control" name="eventid" id="eventid" value="{{ old('id', $event->id) }}">
+                    {{-- ここにuseridを書いたらいいんじゃないかな --}}
 
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">send</button>

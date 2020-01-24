@@ -8,6 +8,6 @@ class Event extends Model
 {
     public function event_user()
     {
-        return $this->belongsToMany('App\userz', 'event_users')->withTimestamps();
+        return $this->belongsToMany('App\User', 'event_users', 'user_id', 'event_id')->withTimestamps();
     }
 }
