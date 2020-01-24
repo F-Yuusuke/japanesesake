@@ -67,4 +67,4 @@ Route::group(['prefix' => 'sakagura', 'middleware' => 'auth:owner'], function(){
 Auth::routes();
 Route::get('event/{id}/apply', 'EventController@event_apply')->name('event.apply'); // 申込画面
 Route::put('event/{id}/applyed', 'EventController@event_applyed')->name('event.applyed'); // 申込更新処理
-Route::delete('event/{id}/applydelete', 'EventController@event_applydestroy')->name('event.applydestroy'); // 申込削除処理
+Route::delete('event/{id}/applydelete', 'EventController@applydestroy'); // 削除処理

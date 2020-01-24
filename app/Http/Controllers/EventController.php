@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
-    public function index() //イベント一覧表示
+    public function index(Request $id)
     {
-        $events = Event::all();
+        $events = Event::with('event_user')->get();
 
         return view('events.index',['events' => $events]);
     }
@@ -125,17 +125,21 @@ class EventController extends Controller
     {
         $event_users = new Event_user();
 
-        $event_users->User_id = $request->id;
-        $event_users->Event_id = '000';//仮設id
+        $event_users->Event_id = $request->eventid;
+        $event_users->User_id = '999';//仮id
         $event_users->People_count = '1';
         $event_users->Special_comment = $request->Special_comment;
-
-        // dd($event_user);
-        // $event_user = Event_user::where('id', $id)->with('event_user')->first();
         $event_users->save();
 
         return redirect()->route('event.index');
     }
+    public function applydestroy(Event_user $event_user)
+   {
+        $event_user = Event_user::find($event_user);
+        //取得したデータを削除
+        dd($event_user);
+        // $event_user->delete();
+
+        return redirect()->route('event.index');
+    }
 }
-
-
