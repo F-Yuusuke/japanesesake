@@ -46,7 +46,7 @@ class EventController extends Controller
     }
 
 
-    public function event_apply(int $id)//申込
+    public function apply(int $id)//申込
     {
         $event = Event::find($id);
 
@@ -56,7 +56,7 @@ class EventController extends Controller
     }
 
 
-    public function event_applyed(int $id, Request $request)//申込完了
+    public function applyed(int $id, Request $request)//申込完了
     {
         $event_users = new Event_user();
 
@@ -68,7 +68,8 @@ class EventController extends Controller
 
         return redirect()->route('event.index')->with('message', 'booking confirmed');
     }
-    public function applydestroy(Event_user $event_user)
+
+    public function cancel(Event_user $event_user)
    {
         $event_user = Event_user::find($event_user);
         //取得したデータを削除

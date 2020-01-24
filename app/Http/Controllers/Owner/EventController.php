@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Owner;
 
 
 use App\Event;
-use App\Owner;
-use Illuminate\Support\Facades\Auth;
-use App\Event_user;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
