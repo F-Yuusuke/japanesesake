@@ -20,7 +20,6 @@ Route::get('/event/search', 'EventController@search')->name('event.search'); //-
 
 // ②酒蔵ログインしてる場合だけ行える処理
 Route::group(['prefix' => 'owner', 'middleware' => 'auth:owner'], function () {
-    // Route::get('/sakagura', 'SakaguraController@index')->name('sakagura.index');
     Route::get('/', 'Owner\OwnerController@mypage')->name('owner.mypage');
     Route::post('logout', 'Owner\Auth\LoginController@logout')->name('owner.logout');
     Route::get('event/create', 'Owner\EventController@create')->name('event.create');//イベント登録
@@ -37,7 +36,7 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function () {
     Route::get('login', 'Owner\Auth\LoginController@showLoginForm')->name('owner.login');
     Route::post('login', 'Owner\Auth\LoginController@login')->name('owner.login');
     Route::get('register', 'Owner\Auth\RegisterController@showRegisterForm')->name('owner.register');
-    Route::post('register', 'Owner\Auth\RegisterController@create')->name('owner.register');
+    Route::post('register', 'Owner\Auth\RegisterController@register')->name('owner.register');
 });
 
 

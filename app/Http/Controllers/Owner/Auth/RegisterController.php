@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use \Auth;
 
 class RegisterController extends Controller
 {
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/sakagura/mypage';
+    protected $redirectTo = '/owner';
 
     /**
      * Create a new controller instance.
@@ -41,15 +43,22 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    public function guard()
+    {
+        return Auth::guard('owner');
+    }
+
+
     /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(Request $request)
+    protected function validator(array $data)
     {
-        return Validator::make($request, [
+        return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:owners',
             'address' => 'required|string|max:255',
@@ -61,28 +70,17 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(Request $request)
+    protected function create(array $data)
     {
-        $owner = new Owner();
 
-        $owner->name = $request->name;
-        $owner->email = $request->email;
-        $owner->address = $request->address;
-        $owner->tel = $request->tel;
-        // $owner->description = $request->description;
-        $owner->zipcode = $request->zipcode;
-        // $owner->picture_path = $request->picture_path;
-        // $owner->password = $request->password;
-        $owner->password = Hash::make($request->password);
-        $owner->save();
-
-        return redirect()->route('owner.index');
+        return Owner::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'address' => $data['address'],
+            'tel' => $data['tel'],
+            'zipcode' => $data['zipcode'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 
     public function showRegisterForm()
