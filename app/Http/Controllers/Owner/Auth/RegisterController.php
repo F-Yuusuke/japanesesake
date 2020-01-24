@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/sakagura/mypage';
+    protected $redirectTo = '/owner';
 
     /**
      * Create a new controller instance.
@@ -44,10 +44,10 @@ class RegisterController extends Controller
     }
 
 
-    // public function guard()
-    // {
-    //     return Auth::guard('owner');
-    // }
+    public function guard()
+    {
+        return Auth::guard('owner');
+    }
 
 
     /**
@@ -70,26 +70,17 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
     protected function create(array $data)
     {
-        $owner = new Owner();
 
-        $owner->name = $data['name'];
-        $owner->email = $data['email'];
-        $owner->address = $data['address'];
-        $owner->tel = $data['tel'];
-        $owner->zipcode = $data['zipcode'];
-        $owner->password = Hash::make($data['password']);
-
-        $owner->save();
-
-        return redirect()->route('owner.mypage');
+        return Owner::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'address' => $data['address'],
+            'tel' => $data['tel'],
+            'zipcode' => $data['zipcode'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 
     public function showRegisterForm()
