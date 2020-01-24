@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Owner\Auth;
 
-use App\Http\Controllers\Owner\Auth;
+// use App\Http\Controllers\Owner\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,23 +42,14 @@ class LoginController extends Controller
 
     public function guard()
     {
-        return \Auth::guard('owner');
+        return Auth::guard('owner');
     }
-    
+
 
     public function showLoginForm()
     {
         return view('sakagura.auth.login'); //酒蔵ログインページのテンプレート
     }
-
-    // public function logout(Request $request)
-    // {
-    //     $this->guard()->logout();
-
-    //     $request->session()->invalidate();
-
-    //     return $this->loggedOut($request) ?: redirect('/sakagura/');  // ログアウト後のリダイレクト先
-    // }
 
     // public function username()
     // {
@@ -74,5 +66,5 @@ class LoginController extends Controller
         return $this->loggedOut($request) ?: redirect('/sakagura');  // ログアウト後のリダイレクト先
     }
 
-    
+
 }

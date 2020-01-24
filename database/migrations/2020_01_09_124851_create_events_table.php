@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('place');
             $table->integer('price');
             $table->string('picture_path');
-            // $table->integer('owner_id'); //後で作る
+            $table->integer('owner_id'); //後で作る
             $table->timestamps();
         });
     }
@@ -33,6 +33,10 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        // Schema::dropIfExists('events');
+
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('picture_path'); 
+        });
     }
 }

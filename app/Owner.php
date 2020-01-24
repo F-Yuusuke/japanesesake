@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class Owner extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +16,7 @@ class Owner extends Authenticatable
      *
      * @var array
      */
-    
+
     protected $fillable = [
         'name', 'address', 'email', 'tel', 'description', 'password', 'zipcode', 'picture_path'
     ];
