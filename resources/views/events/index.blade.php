@@ -58,6 +58,13 @@
               @method('delete')
               <a class="btn btn-success" href="{{ route('event.apply', ['id' => $event->id]) }}" method="post" class="d-inline">Reed more／Booking</a>
             </form>
+
+            {{-- <form action="{{ route('event.applydestroy', ['id' => $event_users->id]) }}" method="post" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger">申込取り消し</button>
+            </form> --}}
+
         </div>
     @endforeach
 
