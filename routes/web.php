@@ -45,6 +45,7 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function () {
 // ④外国人ユーザーがログインしてる場合だけ行える処理
 Route::group(['middleware' => 'auth'], function () {
     Route::get('event/{id}/apply', 'EventController@event_apply')->name('event.apply'); // 申込画面
+
     Route::put('event/{id}/applyed', 'EventController@event_applyed')->name('event.applyed'); // 申込更新処理
     Route::delete('event/{id}/applydelete', 'EventController@event_applydestroy')->name('event.applydestroy'); // 申込削除処理
 });
@@ -53,5 +54,3 @@ Route::group(['middleware' => 'auth'], function () {
 
 // ⑤外国人ユーザー認証関連
 Auth::routes();
-Route::get('event/{id}/apply', 'Auth\LoginController@showLoginForm')->name('login'); //
-Route::get('event/{id}/apply', 'EventController@event_apply')->name('event.apply'); // event一覧ページのエラー回避のためとりあえず。。。
