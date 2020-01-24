@@ -37,7 +37,7 @@ Route::group(['prefix' => 'owner', 'middleware' => 'guest:owner'], function () {
     Route::get('login', 'Owner\Auth\LoginController@showLoginForm')->name('owner.login');
     Route::post('login', 'Owner\Auth\LoginController@login')->name('owner.login');
     Route::get('register', 'Owner\Auth\RegisterController@showRegisterForm')->name('owner.register');
-    Route::post('register', 'Owner\Auth\RegisterController@create')->name('owner.register');
+    Route::post('register', 'Owner\Auth\RegisterController@register')->name('owner.register');
 });
 
 
