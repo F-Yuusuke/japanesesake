@@ -1,5 +1,4 @@
-
-@extends('layouts.app')
+@extends('layouts.app_owner')
 
 @section('content')
 <div class="container">
@@ -41,7 +40,7 @@
                 <p>{{ $event->date }}</p>
                 <p>{{ $event->place }}</p>
                 <p>{{ $event->price }}</p>
-                <p>{{ $event->picture_path }}</p>
+                <img height="100px" src="{{ $event->picture_path }}" >
                 <p>{{ $event->owner_id }}</p>
                 <form action="{{ route('event.destroy', ['id' => $event->id]) }}" method="post" class="d-inline">
                   @csrf
