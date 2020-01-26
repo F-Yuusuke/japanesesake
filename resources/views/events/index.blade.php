@@ -10,15 +10,11 @@
     <title>イベント一覧表示画面</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Logo</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+<!-- 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <!-- <li class="nav-item active">
+      <li class="nav-item active">
         <a class="nav-link" href="/">TOPPAGE <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -26,29 +22,59 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
-      </li> -->
+      </li>
+      
     </ul>
-      <!-- <li class="nav-item"> -->
+      <li class="nav-item">
         <a class="nav-link" href="/owner/login">Logout</a>
-      <!-- </li> -->
+      </li>
+      
 
 
-  </div>
-</nav>
+  </div> -->
+  
+  <ul class="nav nav-pills nav-fill py-2 mb-5 bg-dark">
+  <li class="nav-item">
+  <a class="navbar-brand" href="#">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Longer nav link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+  <!-- <li>
+    <form class="form-inline my-2 my-lg-0 search-center" action="{{ route('event.search') }}">アクションの書き方はこれがマスト 意味は検索がクリックされたらルートevent.searchに行く
+      <input class="form-control mr-sm-2" name="keyword" value="{{ old('keyword') }}" type="search" placeholder="気になるワード" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+    </form>
+  </li> -->
+</ul>
+<!-- </nav> -->
 
 <!-- https://saruwakakun.com/html-css/reference/h-design#section2 -->
-<div>
+<div class="container d-flex justify-content-between">
   <h1>直近のイベント一覧</h1>
-</div>
-
     <form class="form-inline my-2 my-lg-0 search-center" action="{{ route('event.search') }}"><!-- アクションの書き方はこれがマスト 意味は検索がクリックされたらルートevent.searchに行く -->
       <input class="form-control mr-sm-2" name="keyword" value="{{ old('keyword') }}" type="search" placeholder="気になるワード" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
     </form>
+</div>
+
     
 
 
     <!-- https://saruwakakun.com/html-css/reference/buttons -->
+  <div class="container">
   @foreach ($events as $event)
   <div class="m-4 p-4 border box10">
     <div class="row no-gutters ">
@@ -72,6 +98,7 @@
     </div>
   </div>
 @endforeach
+  </div>  
 
 
 
