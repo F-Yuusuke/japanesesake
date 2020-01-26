@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('event/{id}/apply', 'EventController@apply')->name('event.apply'); // 申込画面
     Route::put('event/{id}/applyed', 'EventController@applyed')->name('event.applyed'); // 申込更新処理
     Route::delete('event/{id}/applydelete', 'EventController@cancel')->name('event.applydestroy'); // 申込削除処理
+    Route::get('mypage', 'UserController@mypage')->name('user.mypage');
 });
 
 
