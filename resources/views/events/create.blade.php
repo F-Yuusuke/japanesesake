@@ -6,6 +6,7 @@
 <section class="container m-5">
         <div class="row justify-content-center">
             <div class="col-8">
+                <h1 class="text-center">新規イベントの登録</h1>
                 <form action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- 蔵の名前 -->
@@ -44,23 +45,19 @@
                         <input type="text" class="form-control" name="picture_path" id="picture_path" />
                     </div> -->
                     <div class="form-group row">
-                        <label for="picture" class="col-md-4 col-form-label text-md-right">イメージ画像</label>
+                        <label for="picture" class="col-form-label text-md-right">イメージ画像</label>
 
-                        <div class="col-md-6">
-                            <input id="picture" type="file" name="picture"
-                            class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}"
-                            >
+                            <input id="picture" type="file" name="picture" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}">
 
                             @if ($errors->has('picture'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('picture') }}</strong>
                                 </span>
                             @endif
-                        </div>
                     </div>
                     <!-- ボタン -->
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">投稿</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn">投稿</button>
                     </div>
                 </form>
         </div>

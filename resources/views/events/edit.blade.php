@@ -12,6 +12,7 @@
                         @endforeach
                     </ul>
                 @endif
+                <h1 class="text-center">イベント修正</h1>
                 <form action="{{ route('event.update', ['id' => $event->id]) }}" method="post">
                     @csrf
                     @method('put')
@@ -47,8 +48,8 @@
                                 @endif
                         </div>
 
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">更新</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn">更新</button>
                     </div>
                 </form>
             </div>

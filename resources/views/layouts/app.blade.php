@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/event">Event</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mypage">Mypage</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

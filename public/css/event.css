@@ -1,7 +1,7 @@
 .navbar {
+    background: midnightblue;
+    /* background: indigo; */
     /* background: darkblue; */
-    /* background: midnightblue; */
-    background: indigo;
 }
 
 .menu {
@@ -10,8 +10,8 @@
 }
 
 .card-title {
-    /* color: midnightblue; */
-    color: indigo;
+    color: midnightblue;
+    /* color: indigo; */
 }
 
 .auth_container{
@@ -23,13 +23,13 @@
 .btn {
     align-items: center;
     width: 200px;
-    /* background: midnightblue; */
-    background: indigo;
+    background: midnightblue;
+    /* background: indigo; */
     color: whitesmoke;
 }
 
 .footer {
-    /* background: midnightblue; */
-    background: indigo;
+    background: midnightblue;
+    /* background: indigo; */
     color: whitesmoke;
 }
