@@ -28,6 +28,10 @@
     color: whitesmoke;
 }
 
+.form-group {
+    font-size: 20pt;
+}
+
 .footer {
     background: midnightblue;
     /* background: indigo; */
