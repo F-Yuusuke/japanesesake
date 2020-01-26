@@ -47,7 +47,7 @@
                           <a class="nav-link" href="/event">Events List</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/login">Login</a>
+                          <a class="nav-link" href="/mypage">Mypage</a>
                         </li>
                       </ul>
 
