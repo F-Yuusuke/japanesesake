@@ -17,6 +17,7 @@ Route::get('/event', 'EventController@index')->name('event.index');//一覧表�
 Route::get('/event/search', 'EventController@search')->name('event.search'); //->以降のコードはindex.blade.phpのアクションで指名してもらえるように同じ名前をかく
 // '/event/search'は別に画面遷移するというわけではなく同じページでもURLは違っていてもOK
 
+Route::get('mypage', 'UserController@mypage')->name('user.mypage');
 
 
 // ②酒蔵ログインしてる場合だけ行える処理
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('event/{id}/apply', 'EventController@apply')->name('event.apply'); // 申込画面
     Route::put('event/{id}/applyed', 'EventController@applyed')->name('event.applyed'); // 申込更新処理
     Route::delete('event/{id}/applydelete', 'EventController@cancel')->name('event.applydestroy'); // 申込削除処理
+
 });
 
 
