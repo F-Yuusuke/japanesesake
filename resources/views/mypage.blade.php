@@ -21,7 +21,7 @@
             </div>
 
             {{-- ログインしたユーザーの申し込んだイベント表示 --}}
-            {{-- @foreach ($events as $event)
+            @foreach ($events as $event)
             <div class="m-4 p-4 border border-primary">
                 <h1>{{ $event->name }}</h1>
                 <p>{{ $event->description }}</p>
@@ -29,9 +29,9 @@
                 <p>{{ $event->place }}</p>
                 <p>{{ $event->price }}</p>
                 <img height="100px" src="{{ $event->picture_path }}" >
-                <p>{{ $event->owner_id }}</p>
+                <p>{{ $event->user_id }}</p>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </div>
 </div>
