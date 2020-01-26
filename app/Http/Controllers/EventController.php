@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Event;
-use App\Owner;
-use Illuminate\Support\Facades\Auth;
 use App\Event_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //付け加えた
