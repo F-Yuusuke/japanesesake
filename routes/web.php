@@ -17,6 +17,7 @@ Route::get('/event', 'EventController@index')->name('event.index');//一覧表�
 Route::get('/event/search', 'EventController@search')->name('event.search'); //->以降のコードはindex.blade.phpのアクションで指名してもらえるように同じ名前をかく
 // '/event/search'は別に画面遷移するというわけではなく同じページでもURLは違っていてもOK
 
+Route::get('mypage', 'UserController@mypage')->name('user.mypage');
 
 
 // ②酒蔵ログインしてる場合だけ行える処理

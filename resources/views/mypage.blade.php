@@ -1,14 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.appuser')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-
             <div class="card">
-                <div class="card-header">ユーザーマイページ</div>
+                <div class="card-header">Mypage</div>
 
+            </div>
 
+            <h1>User Information</h1>
             {{-- ログインしたユーザーの情報表示 --}}
             <div>
                  <div class="m-4 p-4 border border-primary">
@@ -20,16 +21,16 @@
                  </div>
             </div>
 
-            {{-- ログインしたユーザーの申し込んだイベント表示 --}}
+            <h1>Your Booking</h1>
+            {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
             @foreach ($events as $event)
             <div class="m-4 p-4 border border-primary">
-                <h1>{{ $event->name }}</h1>
-                <p>{{ $event->description }}</p>
-                <p>{{ $event->date }}</p>
-                <p>{{ $event->place }}</p>
-                <p>{{ $event->price }}</p>
+                <h1>{{ $event->event->name }}</h1>
+                <p>{{ $event->event->description }}</p>
+                <p>{{ $event->event->date }}</p>
+                <p>{{ $event->event->place }}</p>
+                <p>{{ $event->event->price }}</p>
                 <img height="100px" src="{{ $event->picture_path }}" >
-                <p>{{ $event->user_id }}</p>
             </div>
             @endforeach
         </div>

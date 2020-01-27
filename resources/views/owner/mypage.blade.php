@@ -50,7 +50,7 @@
                 </form>
             </div>
             @endforeach
-            <a href="{{ route('event.create') }}" class="btn btn-primary btn-block">イベント新規登録</a>
+            <a href="{{ route('event.create') }}" class="btn btn-block">イベント新規登録</a>
 
         </div>
     </div>
