@@ -53,7 +53,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('ログイン') }}
                                 </button>
 
@@ -62,6 +62,9 @@
                                         {{ __('パスワードをお忘れですか?') }}
                                     </a>
                                 @endif
+                                    <a class="btn btn-link" href="{{ route('owner.register') }}">
+                                        {{ __('登録がまだの人はこちらから新規登録') }}
+                                    </a>
                             </div>
                         </div>
                     </form>
