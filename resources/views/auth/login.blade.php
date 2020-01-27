@@ -1,5 +1,5 @@
-@extends('layouts.app')
-<!-- {{--  --}} laravelのコメントアウト -->
+@extends('layouts.appuser')
+
 @section('content')
 
 

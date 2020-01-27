@@ -27,10 +27,10 @@
         <a class="nav-link" href="/event">Event</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/sakagura">酒蔵の方はこちら</a>
+        <a class="nav-link" href="/owner/login">酒蔵の方はこちら</a>
       </li>
     </ul>
 
@@ -56,15 +56,17 @@
             <form action="{{ route('event.destroy', ['id' => $event->id]) }}" method="post" class="d-inline">
               @csrf
               @method('delete')
-              <button class="btn btn-danger">削除</button>
-              <a class="btn btn-success" href="{{ route('event.edit', ['id' => $event->id]) }}" method="post" class="d-inline">編集</a>
-              <a class="btn btn-success" href="{{ route('event.apply', ['id' => $event->id]) }}" method="post" class="d-inline">申込</a>
+              <a class="btn btn-success" href="{{ route('event.apply', ['id' => $event->id]) }}" method="post" class="d-inline">Reed more／Booking</a>
             </form>
+
+            {{-- <form action="{{ route('event.applydestroy', ['id' => $event_users->id]) }}" method="post" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger">申込取り消し</button>
+            </form> --}}
+
         </div>
     @endforeach
-
-
-    <a href="{{ route('event.create') }}" class="btn btn-primary btn-block">イベント新規登録</a>
 
 </body>
 </html>

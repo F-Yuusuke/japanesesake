@@ -1,27 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Owner;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Owner;
 use \Auth;
 use App\Event;
 
 
-class SakaguraController extends Controller
+class OwnerController extends Controller
 {
-    public function index()
-    {
-        return view('sakagura.index');
-    }
-
     public function mypage()
     {
         $owner = Owner::find(Auth::guard('owner')->user()->id);
         // $events = Event::all();
         $events = Event::where("owner_id", Auth::guard('owner')->user()->id)->get();
 
-        return view('sakagura.mypage',[
+        return view('owner.mypage',[
             'owner' => $owner,
             'events' => $events,
         ]);
