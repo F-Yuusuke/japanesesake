@@ -18,10 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/event.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -40,7 +41,10 @@
                             <a class="nav-link" href="＃">About This Site</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/event">Event</a>
+                            <a class="nav-link" href="/event">Events List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mypage">Mypage</a>
                         </li>
                     </ul>
 
@@ -83,6 +87,12 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- copyright -->
+        <div class="footer mt-5">
+            <p class="text-center py-3 m-0"><small>©2020 Japanese Sake</small></p>
+        </div>
+        <!-- /copyright -->
     </div>
 </body>
 </html>

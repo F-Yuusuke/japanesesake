@@ -88,6 +88,11 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <!-- copyright -->
+        <div class="footer mt-5">
+            <p class="text-center py-3 m-0"><small>©2020 Japanese Sake</small></p>
+        </div>
+        <!-- /copyright -->
     </div>
 </body>
 </html>
