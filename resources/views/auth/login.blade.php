@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <!-- {{--  --}} laravelのコメントアウト -->
-{{--@section('content') --}}
+@section('content')
 
 
 <div class="container">
@@ -78,4 +78,4 @@
 </div>
 
 	
-{{-- @endsection --}}
+@endsection
