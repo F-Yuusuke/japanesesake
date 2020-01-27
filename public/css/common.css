@@ -1,0 +1,35 @@
+.navbar {
+    /* background: darkblue; */
+    /* background: midnightblue; */
+    background: indigo;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-title {
+    /* color: midnightblue; */
+    color: indigo;
+}
+
+.auth_container{
+    display: flex;
+    flex-direction: column;;
+    justify-content: space-between;
+}
+
+.btn {
+    align-items: center;
+    width: 200px;
+    /* background: midnightblue; */
+    background: indigo;
+    color: whitesmoke;
+}
+
+.footer {
+    /* background: midnightblue; */
+    background: indigo;
+    color: whitesmoke;
+}
