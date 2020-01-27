@@ -1,42 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app_owner')
+
+@section('content')
+
+@push('css')
+    <link href="/layouts/app_owner" rel="stylesheet">
+@endpush
 
 <!-- 投稿フォーム -->
 <section class="container m-5">
         <div class="row justify-content-center">
             <div class="col-8">
+                <h1 class="text-center">新規イベントの登録</h1>
                 <form action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- 蔵の名前 -->
                     <div class="form-group">
-                        <label for="title">name</label>
+                        <label for="title">酒蔵名</label>
                         <input type="text" class="form-control" name="name" id="name" />
                     </div>
                     <!-- 詳細 -->
                     <div class="form-group">
-                        <label for="body">description</label>
+                        <label for="body">イベントの詳細情報</label>
                         <textarea class="form-control" name="description" id="description"></textarea>
                     </div>
                     <!-- 日付 -->
                     <div class="form-group">
-                        <label for="title">date</label>
+                        <label for="title">日時</label>
                         <input type="text" class="form-control" name="date" id="date" />
                     </div>
                     <!-- 開催地 -->
                     <div class="form-group">
-                        <label for="title">place</label>
+                        <label for="title">会場</label>
                         <input type="text" class="form-control" name="place" id="place" />
                     </div>
                     <!-- 値段 -->
                     <div class="form-group">
-                        <label for="title">price</label>
+                        <label for="title">値段</label>
                         <input type="text" class="form-control" name="price" id="price" />
                     </div>
                     <!-- オーナーID -->
@@ -50,28 +49,23 @@
                         <input type="text" class="form-control" name="picture_path" id="picture_path" />
                     </div> -->
                     <div class="form-group row">
-                        <label for="picture" class="col-md-4 col-form-label text-md-right">Profile picutre</label>
+                        <label for="picture" class="col-form-label text-md-right">イメージ画像</label>
 
-                        <div class="col-md-6">
-                            <input id="picture" type="file" name="picture"
-                            class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}"
-                            >
+                            <input id="picture" type="file" name="picture" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}">
 
                             @if ($errors->has('picture'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('picture') }}</strong>
                                 </span>
                             @endif
-                        </div>
                     </div>
                     <!-- ボタン -->
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">upload</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn_go">投稿</button>
                     </div>
                 </form>
         </div>
     </div>
 </section>
 
-</body>
-</html>
+@endsection
