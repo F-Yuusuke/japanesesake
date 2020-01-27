@@ -11,8 +11,10 @@ class UserController extends Controller
 {
     public function mypage()
     {
-        $user = User::find(Auth::guard('user')->user()->id);
-        $events = Event::where("user_id", Auth::guard('user')->user()->id)->get();
+        // $user = User::find(Auth::guard('user')->user()->id);
+        $user = Auth::user();
+        // $events = Event::where("user_id", Auth::guard('user')->user()->id)->get();
+        $events = Event::where("owner_id", Auth::id())->get();
 
         return view('/mypage', [
             'user' => $user,
