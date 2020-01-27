@@ -61,11 +61,10 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('パスワードをお忘れですか?') }}
                                     </a>
-                                    <!-- ここをクリックされたら新規登録ページに飛ばすようにする -->
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                @endif
+                                    <a class="btn btn-link" href="{{ route('owner.register') }}">
                                         {{ __('登録がまだの人はこちらから新規登録') }}
                                     </a>
-                                @endif
                             </div>
                         </div>
                     </form>
