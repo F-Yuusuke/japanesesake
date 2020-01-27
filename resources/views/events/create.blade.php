@@ -2,6 +2,10 @@
 
 @section('content')
 
+@push('css')
+    <link href="/layouts/app_owner" rel="stylesheet">
+@endpush
+
 <!-- 投稿フォーム -->
 <section class="container m-5">
         <div class="row justify-content-center">
@@ -57,7 +61,7 @@
                     </div>
                     <!-- ボタン -->
                     <div class="text-center">
-                        <button type="submit" class="btn">投稿</button>
+                        <button type="submit" class="btn_go">投稿</button>
                     </div>
                 </form>
         </div>
