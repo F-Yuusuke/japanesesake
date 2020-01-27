@@ -38,7 +38,7 @@
                     {{-- ここにuseridを書いたらいいんじゃないかな --}}
 
                     <div class="text-center">
-                        <button type="submit" class="btn mt-5">Book Now</button>
+                        <button type="submit" class="btn_go mt-5">Book Now</button>
                     </div>
                 </form>
             </div>
