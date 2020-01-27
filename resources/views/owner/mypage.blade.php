@@ -55,28 +55,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-<div class="container">
-  @foreach ($events as $event)
-  <div class="m-4 p-4 border box10">
-    <div class="row no-gutters ">
-      <div class="col-md-4 rounded">
-      <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>ああああああ</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
-      </div>
-        <div class="col-md-8">
-          <div class="card-body">
-              <h5 class="card-title">{{ $event->name }}</h5>
-              <p class="card-text">{{ $event->description }}</p>
-              <p class="card-text"><small class="text-muted">{{ $event->date }}</small></p>
-              <p class="card-text">{{ $event->place }}</p>
-              <p class="card-text">{{ $event->price }}</p>
-              <form action="{{ route('event.destroy', ['id' => $event->id]) }}" method="post" class="d-inline">
-                @csrf
-                @method('delete')
-                <a class="btn-sticky" href="{{ route('event.apply', ['id' => $event->id]) }}" method="post" class="d-inline">Reed more／Booking</a>
-              </form>
-          </div>
-       </div>
-    </div>
-  </div>
+@endsection—
