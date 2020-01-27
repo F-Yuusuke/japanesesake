@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/app.css">
-    <title>編集画面</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
 <section class="container m-5">
         <div class="row justify-content-center">
             <div class="col-8">
+                    <h1 class="text-center">Event Detail</h1>
                 @if($errors->any())
                     <ul>
                         @foreach($errors->all() as $message)
@@ -22,11 +16,20 @@
                 <form action="{{ route('event.applyed', ['id' => $event->id]) }}" method="post">
                     @csrf
                     @method('put')
-                    <div class="form-group">
-                        <label for="title">event title is "{{ old('name', $event->name) }}"</label>
+                    <div class="apply-form">
+                        <label for="name">Event Title : {{ old('name', $event->name) }}</label>
                     </div>
-                    <div class="form-group">
-                        <label for="body">shall we help you?</label>
+                    <div class="apply-form">
+                        <label for="date">Date : {{ old('date', $event->date) }}</label>
+                    </div>
+                    <div class="apply-form">
+                        <label for="place">Place :  {{ old('place', $event->place) }}</label>
+                    </div>
+                    <div class="apply-form">
+                        <label for="price">Price :  {{ old('price', $event->price) }} 円</label>
+                    </div>
+                    <div class="request">
+                        <label for="body">Let us know if you need special help.</label>
                         <textarea class="form-control" name="Special_comment" id="Special_comment">{{ old('Special_comment') }}</textarea>
                     </div>
 
@@ -34,13 +37,11 @@
                     <input type="hidden" class="form-control" name="eventid" id="eventid" value="{{ old('id', $event->id) }}">
                     {{-- ここにuseridを書いたらいいんじゃないかな --}}
 
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">send</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn_go mt-5">Book Now</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
-
-</body>
-</html>
+@endsection
