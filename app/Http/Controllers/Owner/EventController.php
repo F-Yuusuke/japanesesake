@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Owner;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
 
 // 酒蔵側が閲覧するページ用のイベント機能
 class EventController extends Controller
@@ -27,8 +27,8 @@ class EventController extends Controller
         $events->date = $request->date;
         $events->place = $request->place;
         $events->price = $request->price;
-        $events->owner_id = $request->owner_id;
-        // $events->owner_id = Owner::owner()->id;
+        // $events->owner_id = $request->owner_id;
+        $events->owner_id = Auth::guard('owner')->user()->id;
         $events->picture_path = $imgPath;
         $events->save();
 
