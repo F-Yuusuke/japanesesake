@@ -18,9 +18,13 @@ class UserController extends Controller
         $events = Event_user::where('user_id', Auth::id())->with('event')->get();
         // dd($events);
         // foreach ($events as $event) {
-        //     dd($event->event->name, $event, $event->event);
+        //     dd($event->user_id, $event, $event->event);
         // }
 
+
+        // dd($events, Auth::id());
+
+        dd($events);
         return view('/mypage', [
             'user' => $user,
             'events' => $events,

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use App\Event_user;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; //付け加えた
 
@@ -47,6 +49,7 @@ class EventController extends Controller
     public function apply(int $id)//申込
     {
         $event = Event::find($id);
+        // $user = User::find($id);
 
         // return redirect()->route('event.apply');
 
@@ -67,12 +70,22 @@ class EventController extends Controller
         return redirect()->route('event.index')->with('message', 'booking confirmed');
     }
 
-    public function cancel(Event_user $event_user)
+    public function cancel(int $id)
    {
-        $event_user = Event_user::find($event_user);
+        // $user = User::find($id);
+        $event = Event_user::first();
+        // dd($user);
+        // dd(Auth::user()->id, $id, $event);
+
+        if (Auth::user()->id === $event->user_id) {
+            abort(403);
+        }
+
+        // $events = Event::with('users')->get();
+
         //取得したデータを削除
-        dd($event_user);
-        // $event_user->delete();
+        // dd($event_user);
+        $event->delete();
 
         return redirect()->route('event.index');
     }

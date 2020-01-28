@@ -41,17 +41,30 @@
                         </div>
                             <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $event->name }}</h5>
-                                <p class="card-text">{{ $event->description }}</p>
-                                <p class="card-text"><small class="text-muted">{{ $event->date }}</small></p>
-                                <p class="card-text">{{ $event->place }}</p>
-                                <p class="card-text">{{ $event->price }}</p>
+                                <h5 class="card-title">{{ $event->event->name }}</h5>
+                                <p class="card-text">{{ $event->event->description }}</p>
+                                <p class="card-text"><small class="text-muted">{{ $event->event->date }}</small></p>
+                                <p class="card-text">{{ $event->event->place }}</p>
+                                <p class="card-text">{{ $event->event->price }}</p>
                             </div>
                         </div>
                         </div>
                     </div>
+                    {{-- @if (Auth::check() && Auth::user()->id === $event->user_id) --}}
+                        <form action="{{ route('event.cancel', ['id' => $event->id]) }}" method="post" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger">event cancel</button>
+
+                        </form>
+                    {{-- @endif --}}
                 @endforeach
             </div> 
+        </div>
+    </div>
+</div>
+@endsection
+>>>>>>> master
 
 
 

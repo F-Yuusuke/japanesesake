@@ -8,6 +8,6 @@ class Event_user extends Model
 {
     public function event()
     {
-        return $this->belongsTo('App\Event', 'Event_id');
+        return $this->belongsTo('App\Event', 'event_id');
     }
 }

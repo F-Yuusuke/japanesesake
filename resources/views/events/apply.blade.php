@@ -35,6 +35,7 @@
 
                     <!-- 隠して移動してしてる値 -->
                     <input type="hidden" class="form-control" name="eventid" id="eventid" value="{{ old('id', $event->id) }}">
+                    {{-- <input type="hidden" class="form-control" name="userid" id="userid" value="{{ old('id', $user->id) }}"> --}}
                     {{-- ここにuseridを書いたらいいんじゃないかな --}}
 
                     <div class="text-center">
