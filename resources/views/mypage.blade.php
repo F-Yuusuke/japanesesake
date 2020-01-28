@@ -1,24 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.appuser')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ユーザーマイページ</div>
+                <div class="card-header">Mypage</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div>
             </div>
 
+<<<<<<< HEAD
 
             
 
+=======
+            <h1>User Information</h1>
+>>>>>>> master
             {{-- ログインしたユーザーの情報表示 --}}
             <div>
                  <div class="m-4 p-4 border border-primary">
@@ -36,6 +33,7 @@
                  </div>
             </div>
 
+<<<<<<< HEAD
               <div class="container">
                   <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
@@ -67,10 +65,20 @@
                 <p>{{ $event->date }}</p>
                 <p>{{ $event->place }}</p>
                 <p>{{ $event->place }}</p>
+=======
+            <h1>Your Booking</h1>
+            {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
+            @foreach ($events as $event)
+            <div class="m-4 p-4 border border-primary">
+                <h1>{{ $event->event->name }}</h1>
+                <p>{{ $event->event->description }}</p>
+                <p>{{ $event->event->date }}</p>
+                <p>{{ $event->event->place }}</p>
+                <p>{{ $event->event->price }}</p>
+>>>>>>> master
                 <img height="100px" src="{{ $event->picture_path }}" >
-                <p>{{ $event->owner_id }}</p>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </div>
 </div>

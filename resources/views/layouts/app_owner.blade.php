@@ -42,7 +42,7 @@
                             <a class="nav-link" href="＃">About This Site</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/event">Event</a>
+                            <a class="nav-link" href="/event">Events List</a>
                         </li>
                     </ul>
 
@@ -88,6 +88,11 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <!-- copyright -->
+        <div class="footer mt-5">
+            <p class="text-center py-3 m-0"><small>©2020 Japanese Sake</small></p>
+        </div>
+        <!-- /copyright -->
     </div>
 </body>
 </html>
