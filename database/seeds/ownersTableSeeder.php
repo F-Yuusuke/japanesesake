@@ -20,7 +20,7 @@ class OwnersTableSeeder extends Seeder
                 'email'  => 'owner@gmail.com',
                 'tel'  => '111',
                 'description'  => '111',
-                'password'  => bcrypt(000000),
+                'password'  => bcrypt('000000'),
                 'zipcode'  => '111',
                 'picture_path'  => '111',
                 'created_at'  => '111',
