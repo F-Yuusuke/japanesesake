@@ -31,11 +31,11 @@
             {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
             @foreach ($events as $event)
             <div class="m-4 p-4 border border-primary">
-                {{-- <h1>{{ $event->event->name }}</h1>
+                <h1>{{ $event->event->name }}</h1>
                 <p>{{ $event->event->description }}</p>
                 <p>{{ $event->event->date }}</p>
                 <p>{{ $event->event->place }}</p>
-                <p>{{ $event->event->price }}</p> --}}
+                <p>{{ $event->event->price }}</p>
                 <img height="100px" src="{{ $event->picture_path }}" >
             </div>
 
