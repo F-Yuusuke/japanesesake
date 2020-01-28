@@ -31,7 +31,7 @@
 
 
             <h1>Your Booking</h1>
-            {{-- ログインしたユーザーが申し込んでいるイベント表示 イベント一覧ページからコピペ--}}
+            {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
             <div class="container">
                 @foreach ($events as $event)
                     <div class="m-4 p-4 border box10">
@@ -56,3 +56,4 @@
 
 
 
+@endsection
