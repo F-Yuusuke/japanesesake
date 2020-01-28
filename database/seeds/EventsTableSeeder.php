@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Owner;
 
 class EventsTableSeeder extends Seeder
 {
@@ -13,7 +14,6 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
         $events = [
             [
                 'name' => '蔵 tour',
@@ -45,6 +45,8 @@ class EventsTableSeeder extends Seeder
 
         ];
 
+        $owner = Owner::first();
+
         DB::table('events')->delete();
 
         foreach ($events as $event) {
@@ -56,7 +58,7 @@ class EventsTableSeeder extends Seeder
                 'place' => $event['place'],
                 'price' => $event['price'],
                 'picture_path' => $event['picture_path'],
-                'owner_id' => $event['owner_id'],
+                'owner_id' => $owner->id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

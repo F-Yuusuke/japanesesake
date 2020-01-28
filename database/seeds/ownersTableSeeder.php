@@ -15,12 +15,12 @@ class OwnersTableSeeder extends Seeder
     {
         $owners = [
             [
-                'name' => '天寶一',
+                'name' => 'test',
                 'address'  => '福山市',
-                'email'  => '111',
+                'email'  => 'owner@gmail.com',
                 'tel'  => '111',
                 'description'  => '111',
-                'password'  => '111',
+                'password'  => bcrypt(000000),
                 'zipcode'  => '111',
                 'picture_path'  => '111',
                 'created_at'  => '111',
