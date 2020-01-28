@@ -24,7 +24,7 @@
             <h1>Your Booking</h1>
             {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
             @foreach ($events as $event)
-            <div class="m-4 p-4 border border-primary">
+            <div class="m-4 p-4 border border-light">
                 <h1>{{ $event->event->name }}</h1>
                 <p>{{ $event->event->description }}</p>
                 <p>{{ $event->event->date }}</p>
@@ -37,3 +37,5 @@
     </div>
 </div>
 @endsection
+
+

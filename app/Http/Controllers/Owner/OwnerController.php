@@ -13,6 +13,7 @@ class OwnerController extends Controller
     public function mypage()
     {
         $owner = Owner::find(Auth::guard('owner')->user()->id);
+
         // $events = Event::all();
         $events = Event::where("owner_id", Auth::guard('owner')->user()->id)->get();
 
