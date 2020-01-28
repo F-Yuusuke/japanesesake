@@ -13,9 +13,9 @@
                 <h1 class="text-center">新規イベントの登録</h1>
                 <form action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <!-- 蔵の名前 -->
+                    <!-- イベント名 -->
                     <div class="form-group">
-                        <label for="title">酒蔵名</label>
+                        <label for="title">イベント名</label>
                         <input type="text" class="form-control" name="name" id="name" />
                     </div>
                     <!-- 詳細 -->
@@ -39,10 +39,10 @@
                         <input type="text" class="form-control" name="price" id="price" />
                     </div>
                     <!-- オーナーID -->
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="title">owner_id</label>
                         <input type="text" class="form-control" name="owner_id" id="owner_id" />
-                    </div>
+                    </div> --}}
                     <!-- 画像 -->
                     <!-- <div class="form-group">
                         <label for="title">image</label>

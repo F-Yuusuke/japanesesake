@@ -15,10 +15,10 @@ class CreateEventUsersTable extends Migration
     {
         Schema::create('event_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('Event_id');
-            $table->integer('User_id');
-            $table->integer('People_count');
-            $table->string('Special_comment');
+            $table->integer('event_id');
+            $table->integer('user_id');
+            $table->integer('people_count');
+            $table->string('special_comment');
             $table->timestamps();
         });
     }

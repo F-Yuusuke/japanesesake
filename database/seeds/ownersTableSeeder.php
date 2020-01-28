@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon; // 追加
 use Illuminate\Support\Facades\DB; // 追加
 
-class ownersTableSeeder extends Seeder
+class OwnersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,12 +15,12 @@ class ownersTableSeeder extends Seeder
     {
         $owners = [
             [
-                'name' => '天寶一',
+                'name' => 'test',
                 'address'  => '福山市',
-                'email'  => '111',
+                'email'  => 'owner@gmail.com',
                 'tel'  => '111',
                 'description'  => '111',
-                'password'  => '111',
+                'password'  => bcrypt('000000'),
                 'zipcode'  => '111',
                 'picture_path'  => '111',
                 'created_at'  => '111',
@@ -51,6 +51,8 @@ class ownersTableSeeder extends Seeder
                 'updated_at'  => '333',
             ],
         ];
+
+        DB::table('owners')->delete();
 
         foreach ($owners as $owner) {
 
