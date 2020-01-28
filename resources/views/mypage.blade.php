@@ -78,6 +78,17 @@
 >>>>>>> master
                 <img height="100px" src="{{ $event->picture_path }}" >
             </div>
+
+            {{-- @if (Auth::check() && Auth::user()->id === $event->user_id) --}}
+                <form action="{{ route('event.cancel', ['id' => $event->id]) }}" method="post" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger">event cancel</button>
+
+                </form>
+            {{-- @endif --}}
+
+
             @endforeach
         </div>
     </div>
