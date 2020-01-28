@@ -13,11 +13,17 @@
             {{-- ログインしたユーザーの情報表示 --}}
             <div>
                  <div class="m-4 p-4 border border-primary">
-                    <h1>{{ $user->name }}</h1>
-                    <p>{{ $user->country_id }}</p>
-                    <p>{{ $user->sex }}</p>
-                    <p>{{ $user->email }}</p>
-                    <p>{{ $user->birthday }}</p>
+                 <div class="row no-gutters">
+                        <div class="col-md-4">
+                        <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
+                        </div>
+                           <h5 class="card-title">{{ $user->name }}</h5>
+                            <p class="card-text">{{ $user->country_id }}</p>
+                            <p class="card-text">{{ $user->sex }}</p>
+                            <p class="card-text">{{ $user->email }}</p>
+                            <p class="card-text">{{ $user->birthday }}</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
                  </div>
             </div>
 
@@ -37,5 +43,7 @@
     </div>
 </div>
 @endsection
+
+
 
 

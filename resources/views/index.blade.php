@@ -74,7 +74,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="storage/images/topPage/ukiyoe.jpg" alt="Responsive image" class="img-fluid mb-5">
+                <img src="img/topPage/ukiyoe.jpg" alt="Responsive image" class="img-fluid mb-5">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>aaa</h5>
                     <p>bbb</p>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="/storage/images/topPage/sake_container.jpg" alt="Responsive image" class="img-fluid mb-5">
+                <img src="/img/topPage/sake_container.jpg" alt="Responsive image" class="img-fluid mb-5">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>...</h5>
                     <p>...</p>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="/storage/images/topPage/sake_and_rice.jpg" alt="Responsive image" class="img-fluid mb-5">
+                <img src="/img/topPage/sake_and_rice.jpg" alt="Responsive image" class="img-fluid mb-5">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>...</h5>
                     <p>...</p>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="/storage/images/topPage/woman_drinking_sake.jpg" alt="Responsive image" class="img-fluid mb-5">
+                <img src="/img/topPage/woman_drinking_sake.jpg" alt="Responsive image" class="img-fluid mb-5">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>...</h5>
                     <p>...</p>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="/storage/images/topPage/itsukushima_shrine.jpg" alt="Responsive image" class="img-fluid mb-5">
+                <img src="/img/topPage/itsukushima_shrine.jpg" alt="Responsive image" class="img-fluid mb-5">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>...</h5>
                     <p>...</p>
@@ -131,7 +131,7 @@
             <div class="container col-md-4">
                 <button type="button">
                     <a class="nav-link" href="/event">
-                        <img src="/storage/images/topPage/sake_and_rice2.jpg" alt="Responsive image" width="100%">
+                        <img src="/img/topPage/sake_and_rice2.jpg" alt="Responsive image" width="100%">
                         <div class="card-img-overlay">
                             <h1 class="card-title">Events List</h1>
                         </div>
