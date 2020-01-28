@@ -17,7 +17,7 @@ class CreateOwnersTable extends Migration
             $table->increments('id');
             $table->string('name', 10);
             $table->text('address');
-            $table->text('email')->unique();
+            $table->string('email')->unique();
             $table->string('tel', 20);
             $table->text('description')->nullable();
             $table->string('password', 191);
