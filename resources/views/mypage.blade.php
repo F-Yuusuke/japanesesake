@@ -25,11 +25,6 @@
                 </div>
             </div>
 
-
-
-
-
-
             <h1>Your Booking</h1>
             {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
             <div class="container">
@@ -47,24 +42,22 @@
                                 <p class="card-text">{{ $event->event->place }}</p>
                                 <p class="card-text">{{ $event->event->price }}</p>
                             </div>
+                            {{-- @if (Auth::check() && Auth::user()->id === $event->user_id) --}}
+                                <form action="{{ route('event.cancel', ['id' => $event->id]) }}" method="post" class="d-inline">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger">event cancel</button>
+
+                                </form>
+                            {{-- @endif --}}
                         </div>
                         </div>
                     </div>
-                    {{-- @if (Auth::check() && Auth::user()->id === $event->user_id) --}}
-                        <form action="{{ route('event.cancel', ['id' => $event->id]) }}" method="post" class="d-inline">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-danger">event cancel</button>
-
-                        </form>
-                    {{-- @endif --}}
                 @endforeach
             </div> 
         </div>
     </div>
 </div>
-@endsection
->>>>>>> master
 
 
 
