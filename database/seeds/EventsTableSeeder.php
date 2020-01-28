@@ -45,6 +45,8 @@ class EventsTableSeeder extends Seeder
 
         ];
 
+        DB::table('events')->delete();
+
         foreach ($events as $event) {
 
             DB::table('events')->insert([

@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon; // 追加
 use Illuminate\Support\Facades\DB; // 追加
 
-class ownersTableSeeder extends Seeder
+class OwnersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -51,6 +51,8 @@ class ownersTableSeeder extends Seeder
                 'updated_at'  => '333',
             ],
         ];
+
+        DB::table('owners')->delete();
 
         foreach ($owners as $owner) {
 
