@@ -10,28 +10,6 @@
     <title>イベント一覧表示画面</title>
 </head>
 <body>
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
-<!-- 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">TOPPAGE <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/event">Event</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      
-    </ul>
-      <li class="nav-item">
-        <a class="nav-link" href="/owner/login">Logout</a>
-      </li>
-      
-
-
-  </div> -->
   
   <ul class="nav nav-pills nav-fill py-2 mb-5 bg-dark">
   <li class="nav-item">
@@ -99,6 +77,9 @@
   </div>
 @endforeach
   </div>  
+
+
+  
 
 
 
