@@ -38,7 +38,7 @@
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="＃">About This Site</a>
+                            <a class="nav-link" href="/about">About This Site</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/event">Events List</a>

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src="resources/js/apply_app.js"></script>
+
 <section class="container m-5">
         <div class="row justify-content-center">
             <div class="col-8">
@@ -28,6 +30,12 @@
                     <div class="apply-form">
                         <label for="price">Price :  {{ old('price', $event->price) }} 円</label>
                     </div>
+
+                    <div class="request">
+                        <label for="body">how many do you go to together?</label>
+                        <input class="form-control" name="People_count" id="People_count">{{ old('People_count') }}</input>
+                    </div>
+
                     <div class="request">
                         <label for="body">Let us know if you need special help.</label>
                         <textarea class="form-control" name="Special_comment" id="Special_comment">{{ old('Special_comment') }}</textarea>
@@ -35,14 +43,13 @@
 
                     <!-- 隠して移動してしてる値 -->
                     <input type="hidden" class="form-control" name="eventid" id="eventid" value="{{ old('id', $event->id) }}">
-                    {{-- <input type="hidden" class="form-control" name="userid" id="userid" value="{{ old('id', $user->id) }}"> --}}
-                    {{-- ここにuseridを書いたらいいんじゃないかな --}}
 
                     <div class="text-center">
-                        <button type="submit" class="btn_go mt-5">Book Now</button>
+                        <button type="submit" class="btn_go mt-5" onClick="delete_alert(event);return false;">Book Now</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
 @endsection
