@@ -63,7 +63,7 @@ class EventController extends Controller
         $event = Event_user::first();
 
         $event_users->Event_id = $request->eventid;
-        $event_users->User_id = '999';
+        $event_users->User_id = Auth::user()->id;
         $event_users->People_count = $request->People_count;
         $event_users->Special_comment = $request->Special_comment;
 
