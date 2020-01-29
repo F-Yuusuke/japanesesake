@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index')->name('home.index');//home画面へ
 Route::get('/event', 'EventController@index')->name('event.index');//一覧表示 ここの場合->name('event.index');はなくてもOK でも今後こっちの方が便利になるかもしれないから書いている
 Route::get('/event/search', 'EventController@search')->name('event.search'); //->以降のコードはindex.blade.phpのアクションで指名してもらえるように同じ名前をかく
 // '/event/search'は別に画面遷移するというわけではなく同じページでもURLは違っていてもOK
+Route::get('/about', 'HomeController@about')->name('home.about');//about this siteに飛ぶ
 
 
 // ②酒蔵ログインしてる場合だけ行える処理
