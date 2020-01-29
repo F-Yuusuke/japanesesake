@@ -60,11 +60,15 @@ class EventController extends Controller
     public function applyed(int $id, Request $request)//申込完了
     {
         $event_users = new Event_user();
+        $event = Event_user::first();
 
         $event_users->Event_id = $request->eventid;
-        $event_users->User_id = '999';//仮id
-        $event_users->People_count = '1';
+        $event_users->User_id = '999';
+        $event_users->People_count = $request->People_count;
         $event_users->Special_comment = $request->Special_comment;
+
+        // dd(Auth::user()->id, $id, $event,$event_users);
+
         $event_users->save();
 
         return redirect()->route('event.index')->with('message', 'booking confirmed');

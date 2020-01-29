@@ -74,7 +74,7 @@
 
                         {{-- 誕生日 --}}
                         <div class="form-group row">
-                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Birthday ※for example may,25 → 0525') }}</label>
+                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Birthday ※for example may.25.1994 → 1994-05-25') }}</label>
 
                             <div class="col-md-6">
                                 <input id="birthday" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" required autofocus>
