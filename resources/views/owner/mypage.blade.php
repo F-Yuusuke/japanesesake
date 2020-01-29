@@ -18,7 +18,7 @@
                  </div>
             </div>
 
-            <h1 class="text-center my-2">あなたの酒蔵のイベント情報</h1>
+            <h2 class="text-center my-2">あなたの酒蔵のイベント情報</h2>
             @foreach($owner->events as $event)
                 <div class="card mb-3">
                     <div class="row no-gutters">

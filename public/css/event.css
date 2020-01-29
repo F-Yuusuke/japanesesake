@@ -35,7 +35,7 @@
 }
 
 .footer {
-    /* flex: 1; */
+    flex: 1;
     background: midnightblue;
     /* background: indigo; */
     color: whitesmoke;

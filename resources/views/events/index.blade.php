@@ -15,9 +15,6 @@
  {{-- ナビバー --}}
  <nav class="navbar navbar-expand-md navbar-dark mb-5">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +26,7 @@
                           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="＃">About This Site</a>
+                          <a class="nav-link" href="about">About This Site</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="/event">Events List</a>
