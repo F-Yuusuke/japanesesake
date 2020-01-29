@@ -1,8 +1,9 @@
 .box10 {
     padding: 0.5em 1em;
     margin: 2em 0;
-    color: #00BCD4;
-    background-color: black;/*背景色*/
+    color: #2e2e99;
+    background-color: #c8d2de;
+    /* background-color: #b1c5de; */
     border-top: solid 6px #1dc1d6;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
 }
@@ -22,9 +23,10 @@
     transform: translateY(2px);
   }
 
+
   h1 {
     position: relative;
-    color: blue;
+    color: midnightblue;
     text-shadow: 0 0 2px white;
     text-align: center;
   }
@@ -36,7 +38,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    top: 50%; 
+    top: 50%;
     border: dashed 1px white;
     left: -15px;
     -webkit-transform: translateY(-50%);
@@ -45,6 +47,6 @@
   } */
 
   .search-center {
-    
+
   }
 

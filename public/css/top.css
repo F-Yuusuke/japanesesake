@@ -29,7 +29,11 @@
 }
 
 .footer {
+    flex: 1;
     background: midnightblue;
     /* background: indigo; */
     color: whitesmoke;
+    /* position: absolute;
+    width: 100%;
+    bottom: 0; */
 }

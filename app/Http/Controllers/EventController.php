@@ -71,7 +71,7 @@ class EventController extends Controller
 
         $event_users->save();
 
-        return redirect()->route('event.index')->with('message', 'booking confirmed');
+        return redirect()->route('user.mypage')->with('message', 'booking confirmed');
     }
 
     public function cancel(int $id)

@@ -63,7 +63,7 @@ class EventController extends Controller
     public function update(int $id, Request $request)
     {
         $event = Event::find($id);
-        $imgPath = $this->saveEventImage($request['picture']);
+        $imgPath = $this->saveEventImage($request['picture_path']);
 
         $event->name = $request->name;
         $event->description = $request->description;
