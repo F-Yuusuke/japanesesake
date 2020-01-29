@@ -125,32 +125,42 @@
     </div>
         {{-- カルーセルここまで --}}
 
-        {{-- メニュー --}}
-        <div class="menu">
-            {{-- メニュー左 --}}
-            <div class="container col-md-4">
-                <button type="button">
-                    <a class="nav-link" href="/event">
-                        <img src="/img/topPage/sake_and_rice2.jpg" alt="Responsive image" width="100%">
-                        <div class="card-img-overlay">
-                            <h1 class="card-title">Events List</h1>
-                        </div>
-                    </a>
-                </button>
+{{-- サイト説明 --}}
+<div class="mx-auto" style="width: 50%;">
+
+    {{-- このサイトについてのざっくり説明 --}}
+        <h1 class="display-4 mb-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">about this site</font></font></h1>
+
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">
+                    This site makes it easy for foreigners who want to participate in events for sake brewing in Hiroshima.
+            <br>
+                    If you're looking at this site, you're apply almost there for the sake brewery event!
+            <br></font>
+        </font>
+
+    {{-- 申込方法 --}}
+    <div class="mt-5 pt-5">
+        <h1 class="display-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">application method</font></font></h1>
+
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">
+            1. Please register from the top page.<br>
+            2. Press "book" button of the event you want to participate in.<br>
+            3. If you need help or a wheelchair, please enter text and press "book now".<br>
+            <div class="mt-5">
+            This completes the application!
+            <br>
+            If you make a mistake in your application, you can cancel it from My Page.
+            <br>
             </div>
-             {{-- メニュー右 --}}
-            <div class="auth_container col-md-4">
-                <a href="/register">
-                    <button type="button" class="btn btn-lg">Register</button>
-                </a>
-                <a href="/login">
-                    <button type="button" class="btn btn-lg">Login</button>
-                </a>
-        </div>
+            </font>
+        </font>
     </div>
+</div>
+{{-- サイト説明ここまで --}}
 
-
-    <!-- copyright -->
+        <!-- copyright -->
     <div class="footer mt-5">
         <p class="text-center py-3 m-0"><small>©2020 Japanese Sake</small></p>
     </div>

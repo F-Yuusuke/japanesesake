@@ -9,15 +9,12 @@
 
             </div>
 
-<<<<<<< HEAD
 
-            
 
-=======
+
             <h1>User Information</h1>
->>>>>>> master
             {{-- ログインしたユーザーの情報表示 --}}
-            <div>
+            {{-- <div>
                  <div class="m-4 p-4 border border-primary">
                  <div class="row no-gutters">
                         <div class="col-md-4">
@@ -31,9 +28,8 @@
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                  </div>
-            </div>
+            </div> --}}
 
-<<<<<<< HEAD
               <div class="container">
                   <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
@@ -65,7 +61,6 @@
                 <p>{{ $event->date }}</p>
                 <p>{{ $event->place }}</p>
                 <p>{{ $event->place }}</p>
-=======
             <h1>Your Booking</h1>
             {{-- ログインしたユーザーが申し込んでいるイベント表示 --}}
             @foreach ($events as $event)
@@ -75,7 +70,6 @@
                 <p>{{ $event->event->date }}</p>
                 <p>{{ $event->event->place }}</p>
                 <p>{{ $event->event->price }}</p>
->>>>>>> master
                 <img height="100px" src="{{ $event->picture_path }}" >
             </div>
 
