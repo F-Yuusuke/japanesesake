@@ -28,9 +28,9 @@
     {{-- ナビバー --}}
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
-            </a>
+            </a> --}}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -76,8 +76,8 @@
             <div class="carousel-item active">
                 <img src="img/topPage/ukiyoe.jpg" alt="Responsive image" class="img-fluid mb-5">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>aaa</h5>
-                    <p>bbb</p>
+                    <h5>sAke</h5>
+                    <p>...</p>
                 </div>
             </div>
 

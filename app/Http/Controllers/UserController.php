@@ -24,6 +24,7 @@ class UserController extends Controller
 
         // dd($events, Auth::id());
 
+
         return view('/mypage', [
             'user' => $user,
             'events' => $events,
