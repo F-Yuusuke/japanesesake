@@ -81,7 +81,7 @@ class EventController extends Controller
         // dd($user);
         // dd(Auth::user()->id, $id, $event);
 
-        if (Auth::user()->id === $event->user_id) {
+        if (Auth::user()->id !== $event->user_id) {
             abort(403);
         }
 
@@ -91,6 +91,6 @@ class EventController extends Controller
         // dd($event_user);
         $event->delete();
 
-        return redirect()->route('event.index');
+        return redirect()->route('user.mypage');
     }
 }
