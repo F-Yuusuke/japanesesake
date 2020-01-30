@@ -21,7 +21,7 @@
                     <div class="card mb-3">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img height="200px" src="{{ $event->picture_path }}" >
+                                <img src="{{ asset($event->picture_path) }}" class="card-img" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

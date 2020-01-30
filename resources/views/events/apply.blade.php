@@ -32,12 +32,12 @@
                     </div>
 
                     <div class="request">
-                        <label for="body">how many do you go to together?</label>
+                        <label for="body">How many people are coming?</label>
                         <input class="form-control" name="People_count" id="People_count">{{ old('People_count') }}</input>
                     </div>
 
                     <div class="request">
-                        <label for="body">Let us know if you need special help.</label>
+                        <label for="body">Let us know if you need any special assistance.</label>
                         <textarea class="form-control" name="Special_comment" id="Special_comment">{{ old('Special_comment') }}</textarea>
                     </div>
 
