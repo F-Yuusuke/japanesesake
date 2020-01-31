@@ -98,11 +98,11 @@ class EventController extends Controller
 
     private function saveEventImage($image) //画像登録
     {
-        if (\App::environment('heroku')) {
-            $imgPath = Storage::disk('s3')->putFile('images/eventPicture', $image, 'public');
+        // if (\App::environment('heroku')) {
+        //     $imgPath = Storage::disk('s3')->putFile('images/eventPicture', $image, 'public');
 
-            return Storage::disk('s3')->url($imgPath);
-        }
+        //     return Storage::disk('s3')->url($imgPath);
+        // }
 
         $imgPath = $image->store('images/eventPicture', 'public');
 
