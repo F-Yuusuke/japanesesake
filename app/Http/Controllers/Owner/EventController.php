@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EventRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 // 酒蔵側が閲覧するページ用のイベント機能
 class EventController extends Controller
@@ -98,9 +99,7 @@ class EventController extends Controller
 
     private function saveEventImage($image) //画像登録
     {
-        // if (\App::environment('heroku')) {
-        if (true) {
-            dd($image);
+        if (\App::environment('heroku')) {
             $imgPath = Storage::disk('s3')->putFile('images/eventPicture', $image, 'public');
 
             return Storage::disk('s3')->url($imgPath);
