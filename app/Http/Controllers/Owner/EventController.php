@@ -100,6 +100,7 @@ class EventController extends Controller
     {
         // if (\App::environment('heroku')) {
         if (true) {
+            dd($image);
             $imgPath = Storage::disk('s3')->putFile('images/eventPicture', $image, 'public');
 
             return Storage::disk('s3')->url($imgPath);
